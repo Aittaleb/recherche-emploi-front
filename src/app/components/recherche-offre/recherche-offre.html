@@ -1,1 +1,9 @@
-<p>recherche-offre works!</p>
+<input type="text" [(ngModel)]="query" placeholder="Chercher une offre">
+<button (click)="rechercherParMotCle(query)" [innerHTML]="'Poursuivre'"></button>
+
+@if(this.resultats().length > 0) {
+  <legend>Liste des résultat</legend>
+  @for (element of this.resultats(); track element) {
+    <div> {{ element.information }} </div>
+  }
+}
