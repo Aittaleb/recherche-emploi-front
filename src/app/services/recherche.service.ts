@@ -11,8 +11,7 @@ export class RechercheService {
   private readonly httpClient = inject(HttpClient);
 
   search(query: string) {
-    const params: HttpParams = new HttpParams();
-    params.set('query', query)
+    const params: HttpParams = new HttpParams().set('query', query);
     return this.httpClient.get<ResultatRecherche>(API_RECHERCHE, { params });
   }
 
