@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { RechercheService } from '../../services/recherche.service';
 import { FormsModule } from '@angular/forms';
+import { ResultatRecherche } from '../../models/resultat.recherche.model';
 
 @Component({
   selector: 'app-recherche-offre',
@@ -9,9 +10,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './recherche-offre.css',
 })
 export class RechercheOffre implements OnInit {
-  private readonly rechercheService: RechercheService = inject(RechercheService);
+  private readonly rechercheService = inject(RechercheService);
 
-  resultats: WritableSignal<any> = signal([]);
+  resultats: WritableSignal<ResultatRecherche[]> = signal([]);
   protected query: string = '';
 
   ngOnInit(): void {}

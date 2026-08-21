@@ -2,8 +2,8 @@
 <button (click)="rechercherParMotCle(query)" [innerHTML]="'Poursuivre'"></button>
 
 @if(this.resultats().length > 0) {
-  <legend>Liste des résultat</legend>
+  <legend>Résultats ({{this.resultats().length}}):</legend>
   @for (element of this.resultats(); track element) {
-    <div> {{ element.information }} </div>
+    <div> {{ element.description }} </div>
   }
 }

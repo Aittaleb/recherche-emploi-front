@@ -12,7 +12,7 @@ export class RechercheService {
 
   search(query: string) {
     const params: HttpParams = new HttpParams().set('query', query);
-    return this.httpClient.get<ResultatRecherche>(API_RECHERCHE, { params });
+    return this.httpClient.get<ResultatRecherche[]>(API_RECHERCHE, { params });
   }
 
 }
