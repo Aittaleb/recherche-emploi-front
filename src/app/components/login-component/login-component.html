@@ -1,0 +1,67 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-4 max-w-7xl mx-auto">
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex flex-col space-y-4 p-4">
+          <mat-icon class="text-6xl text-primary">search</mat-icon>
+          <h1 class="text-3xl">JobMatch</h1>
+          <p>Trouvez les offres qui correspondent réellement à votre profil.</p>
+        </div>
+
+        <div class="flex flex-col space-y-2 p-4 md:mt-12">
+          <mat-form-field class="w-full">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" />
+            @if (
+              (form.get('email')?.touched || form.get('email')?.dirty) &&
+              form.get('email')?.hasError('required')
+              ) {
+              <mat-error>
+                <mat-icon class="form-field-error-icon">error</mat-icon>
+                Email obligatoire</mat-error
+              >
+            }
+            @if (
+              (form.get('email')?.touched || form.get('email')?.dirty) &&
+              form.get('email')?.hasError('email')
+              ) {
+              <mat-error>
+                <mat-icon class="form-field-error-icon">error</mat-icon>
+                Email invalid
+              </mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field class="w-full">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" formControlName="password" />
+            @if (
+              (form.get('password')?.touched || form.get('password')?.dirty) &&
+              form.get('password')?.hasError('required')
+              ) {
+              <mat-error>
+                <mat-icon class="form-field-error-icon">error</mat-icon>
+                Mot de passe obligatoire</mat-error
+              >
+            }
+            @if (
+              (form.get('password')?.touched || form.get('password')?.dirty) &&
+              form.get('password')?.hasError('minlength')
+              ) {
+              <mat-error>
+                <mat-icon class="form-field-error-icon">error</mat-icon>
+                Mot de passe doit contenir au moins 8 caractères
+              </mat-error>
+            }
+          </mat-form-field>
+          <div class="density-3 forgot-email-container">
+            <a matButton>Mot de passe oublié ?</a>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <a matButton>Créer compte</a>
+      <button matButton="filled" type="submit">Commencer</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

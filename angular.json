@@ -25,7 +25,10 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/material-theme.scss",
+              "src/styles.css",
+              "src/styles/index.scss",
+              "src/styles/vendors/tailwind.css"
             ]
           },
           "configurations": {
