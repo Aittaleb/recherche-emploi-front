@@ -1,0 +1,46 @@
+<div class="w-full md:max-w-7xl mx-auto p-4 md:p-6">
+  <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
+    <div class="flex flex-col gap-2">
+      <h6 class="text-headline-small font-headline-small">Recherche des offres</h6>
+      <p class="text-body-medium font-body-medium">
+        Une liste d'offre qui correspond à votre recherche est affichée ci-dessous. Vous pouvez consulter le detail de chaque offre et l'ajouter dans vos favorites.
+      </p>
+    </div>
+    <div class="flex md:justify-end">
+      <button matButton="filled">Revenir sur la recherche</button>
+    </div>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mt-6">
+
+    <ng-container matColumnDef="intituleOffre">
+      <th mat-header-cell *matHeaderCellDef>Intitule Offre</th>
+      <td mat-cell *matCellDef="let element" class="font-medium">
+        {{ element.intituleOffre }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lieuTravail">
+      <th mat-header-cell *matHeaderCellDef>Lieu de travail</th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        class="text-gray-500 dark:text-gray-400">
+        {{ element.lieuTravail }} {{ element.codePostal ? ' - ' + element.codePostal : '' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" class="density-3">
+        <button matButton="text" (click)="voirDetails(element)">Voir details</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Selectionner page">
+  </mat-paginator>
+</div>

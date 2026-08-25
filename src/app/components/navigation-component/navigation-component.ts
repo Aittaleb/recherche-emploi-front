@@ -1,4 +1,4 @@
-import { Component, input, viewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, viewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -30,8 +30,8 @@ type User = {
 
 @Component({
   selector: 'ngm-dev-block-nav-with-page-header',
-  templateUrl: './dashboard-component.html',
-  styleUrl: './dashboard-component.css',
+  templateUrl: './navigation-component.html',
+  styleUrl: './navigation-component.css',
 
   changeDetection: ChangeDetectionStrategy.Default,
   imports: [
@@ -46,7 +46,7 @@ type User = {
     NgOptimizedImage,
   ],
 })
-export class DashboardComponent {
+export class NavigationComponent {
   readonly drawer = viewChild.required<MatDrawer>('drawer');
 
   user: User = {
@@ -68,6 +68,7 @@ export class DashboardComponent {
   ];
 
   toggleMenu(): void {
+    console.log('toggleMenu called');
     this.drawer().toggle();
   }
 }

@@ -1,25 +1,28 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { RechercheService } from '../../services/recherche.service';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ResultatRecherche } from '../../models/resultat.recherche.model';
+import { MatFormField, MatInputModule, MatLabel } from '@angular/material/input';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recherche-offre',
-  imports: [FormsModule],
+  imports: [FormsModule, MatFormField, MatLabel, MatInputModule],
   templateUrl: './recherche-offre.html',
   styleUrl: './recherche-offre.css',
 })
 export class RechercheOffre implements OnInit {
-  private readonly rechercheService = inject(RechercheService);
-
-  resultats: WritableSignal<ResultatRecherche[]> = signal([]);
+  private readonly router = inject(Router);
   protected query: string = '';
 
   ngOnInit(): void {}
 
   rechercherParMotCle(query: string) {
-    this.rechercheService.search(query).subscribe((data) => {
-      this.resultats.set(data);
-    });
+    this.router.navigate(['/tableau-des-offres'], { queryParams: { query } });
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.rechercherParMotCle(this.query);
+    }
   }
 }

@@ -1,9 +1,5 @@
-<input type="text" [(ngModel)]="query" placeholder="Chercher une offre">
-<button (click)="rechercherParMotCle(query)" [innerHTML]="'Poursuivre'"></button>
-
-@if(this.resultats().length > 0) {
-  <legend>Résultats ({{this.resultats().length}}):</legend>
-  @for (element of this.resultats(); track element) {
-    <div> {{ element.description }} </div>
-  }
-}
+<h1 class="text-headline-large font-bold tracking-tight">Recherche d'offres</h1>
+<mat-form-field MatFormFieldControl>
+  <mat-label>Chercher une offre</mat-label>
+  <input matInput [(ngModel)]="query">
+</mat-form-field>
