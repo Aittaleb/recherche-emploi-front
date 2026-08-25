@@ -2,6 +2,7 @@ import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormField, MatInputModule, MatLabel } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { PageTitleService } from '../../services/page-title.service';
 
 @Component({
   selector: 'app-recherche-offre',
@@ -11,12 +12,15 @@ import { Router } from '@angular/router';
 })
 export class RechercheOffre implements OnInit {
   private readonly router = inject(Router);
+  private readonly pageTitleService = inject(PageTitleService);
   protected query: string = '';
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pageTitleService.setPageTitle('Chercher une offre');
+  }
 
   rechercherParMotCle(query: string) {
-    this.router.navigate(['/tableau-des-offres'], { queryParams: { query } });
+    this.router.navigate(['/app/tableau-des-offres'], { queryParams: { query } });
   }
 
   @HostListener('document:keydown', ['$event'])

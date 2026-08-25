@@ -12,6 +12,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { offresMock } from '../../mocks/offres.mock';
 import { NgOptimizedImage } from '@angular/common';
 import { OffresService } from '../../services/offres.service';
+import { PageTitleService } from '../../services/page-title.service';
 import { map } from 'rxjs';
 import { Offre } from '../../models/offres.model';
 
@@ -25,12 +26,14 @@ import { Offre } from '../../models/offres.model';
 })
 export class ListeOffresComponenet implements OnInit, AfterViewInit {
   private readonly offresService = inject(OffresService);
+  private readonly pageTitleService = inject(PageTitleService);
 
   offres: WritableSignal<Offre[]> = signal([]);
 
   offresMock = offresMock;
 
   ngOnInit(): void {
+    this.pageTitleService.setPageTitle('Mes Offres');
     // appeler le service pour récupérer les offres
     this.offresService
       .search()

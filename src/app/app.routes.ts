@@ -5,13 +5,27 @@ import { MonProfilComponent } from './components/mon-profil-component/mon-profil
 import { ListeOffresComponenet } from './components/liste-offres-componenet/liste-offres-componenet';
 import { TableauDesOffresComponent } from './components/tableau-des-offres-component/tableau-des-offres-component';
 import { RechercheOffre } from './components/recherche-offre/recherche-offre';
+import { DashboardComponent } from './components/dashboard-component/dashboard-component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: NavigationComponent },
-  { path: 'search', component: RechercheOffre },
-  { path: 'mon-profil', component: MonProfilComponent },
-  { path: 'mes-offres', component: ListeOffresComponenet },
-  { path: 'tableau-des-offres', component: TableauDesOffresComponent },
+  { path: 'dashboard', redirectTo: '/app/dashboard', pathMatch: 'full' },
+  { path: 'search', redirectTo: '/app/search', pathMatch: 'full' },
+  { path: 'tableau-des-offres', redirectTo: '/app/tableau-des-offres', pathMatch: 'full' },
+  { path: 'mes-offres', redirectTo: '/app/mes-offres', pathMatch: 'full' },
+  { path: 'mon-profil', redirectTo: '/app/mon-profil', pathMatch: 'full' },
+  {
+    path: 'app',
+    component: NavigationComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'search', component: RechercheOffre },
+      { path: 'tableau-des-offres', component: TableauDesOffresComponent },
+      { path: 'mes-offres', component: ListeOffresComponenet },
+      { path: 'mon-profil', component: MonProfilComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ],
+  },
+  { path: '**', redirectTo: '/login' },
 ];

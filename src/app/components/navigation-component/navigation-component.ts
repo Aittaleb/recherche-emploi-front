@@ -1,32 +1,14 @@
-import { Component, viewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatSidenavModule, MatDrawer } from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-import { RouterLink } from '@angular/router';
-import {
-  DashBoardCoeurDePageComponent
-} from '../dash-board-coeur-de-page-component/dash-board-coeur-de-page-component';
-import { NgOptimizedImage } from '@angular/common';
-
-type NavigationItem = {
-  name: string;
-  href: string;
-  current: boolean;
-};
-
-type UserNavigationItem = {
-  name: string;
-  href: string;
-};
-
-type User = {
-  name: string;
-  email: string;
-  imageUrl: string;
-};
+import { RouterLink, RouterOutlet, ActivatedRoute } from '@angular/router';
+import { NgOptimizedImage, CommonModule } from '@angular/common';
+import { PageTitleService } from '../../services/page-title.service';
+import { NavigationItem, UserNavigationItem } from '../../models/navigation.model';
 
 @Component({
   selector: 'ngm-dev-block-nav-with-page-header',
@@ -42,33 +24,50 @@ type User = {
     MatSidenavModule,
     MatListModule,
     RouterLink,
-    DashBoardCoeurDePageComponent,
+    RouterOutlet,
     NgOptimizedImage,
+    CommonModule,
   ],
 })
-export class NavigationComponent {
-  readonly drawer = viewChild.required<MatDrawer>('drawer');
+export class NavigationComponent implements OnInit {
+  readonly pageTitleService = inject(PageTitleService);
+  private readonly activatedRoute = inject(ActivatedRoute);
 
-  user: User = {
-    name: 'Abdelhamid Ait Taleb',
-    email: 'abdelhamid.ait-taleb@yahoo.fr',
-    imageUrl:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  };
-
-  navigation: NavigationItem[] = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Chercher une offre', href: '#', current: false },
-    { name: 'Mes Offres', href: '#', current: false },
+  menuNavigation: NavigationItem[] = [
+    { name: 'Dashboard', route: '/app/dashboard', current: false },
+    { name: 'Chercher une offre', route: '/app/search', current: false },
+    { name: 'Mes Offres', route: '/app/mes-offres', current: false },
   ];
 
   userNavigation: UserNavigationItem[] = [
-    { name: 'Mon Profile', href: '#' },
-    { name: 'Se deconnecter', href: '#' },
+    { name: 'Mon Profile', route: '/app/mon-profil' },
+    { name: 'Se deconnecter', route: '/login' },
   ];
 
-  toggleMenu(): void {
-    console.log('toggleMenu called');
-    this.drawer().toggle();
+  ngOnInit(): void {
+    // Écouter les changements de route enfant
+    this.activatedRoute.firstChild?.url.subscribe((segments) => {
+      const route = segments[0]?.path;
+      this.updateActiveNavigation(route || 'dashboard');
+      this.updatePageTitle(route || 'dashboard');
+    });
   }
+
+  private updateActiveNavigation(currentRoute: string): void {
+    this.menuNavigation.forEach((item) => {
+      item.current = item.route.includes(currentRoute);
+    });
+  }
+
+  private updatePageTitle(route: string): void {
+    const titles: { [key: string]: string } = {
+      dashboard: 'Dashboard',
+      search: 'Chercher une offre',
+      'tableau-des-offres': 'Résultats de recherche',
+      'mes-offres': 'Mes Offres',
+      'mon-profil': 'Mon Profil',
+    };
+    this.pageTitleService.setPageTitle(titles[route] || 'Dashboard');
+  }
+
 }
