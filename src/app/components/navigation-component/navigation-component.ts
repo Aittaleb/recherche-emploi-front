@@ -1,11 +1,11 @@
-import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-import { RouterLink, RouterOutlet, ActivatedRoute } from '@angular/router';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { NgOptimizedImage, CommonModule } from '@angular/common';
 import { PageTitleService } from '../../services/page-title.service';
 import { NavigationItem, UserNavigationItem } from '../../models/navigation.model';
@@ -30,15 +30,38 @@ import { LoginService } from '../../services/login.service';
     CommonModule,
   ],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
   readonly pageTitleService = inject(PageTitleService);
-  private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly router = inject(Router);
   private readonly loginService = inject(LoginService);
 
+  titlesMap: Map<string, string> = new Map<string, string>([
+    ['/app/dashboard', 'Dashboard'],
+    ['/app/search', 'Chercher une offre'],
+    ['/app/tableau-des-offres', 'Résultats de recherche'],
+    ['/app/mes-offres', 'Mes Offres'],
+    ['/app/mon-profil', 'Mon Profil'],
+  ]);
+
   menuNavigation: NavigationItem[] = [
-    { name: 'Dashboard', route: '/app/dashboard', current: false },
-    { name: 'Chercher une offre', route: '/app/search', current: false },
-    { name: 'Mes Offres', route: '/app/mes-offres', current: false },
+    {
+      name: 'Dashboard',
+      route: '/app/dashboard',
+      activeIfRoutes: ['/app/dashboard'],
+      current: false,
+    },
+    {
+      name: 'Chercher une offre',
+      route: '/app/search',
+      activeIfRoutes: ['/app/search', '/app/tableau-des-offres'],
+      current: false,
+    },
+    {
+      name: 'Mes Offres',
+      route: '/app/mes-offres',
+      activeIfRoutes: ['/app/mes-offres'],
+      current: false,
+    },
   ];
 
   userNavigation: UserNavigationItem[] = [
@@ -46,34 +69,26 @@ export class NavigationComponent implements OnInit {
     { name: 'Se deconnecter', route: '/login' },
   ];
 
-  ngOnInit(): void {
-    // Écouter les changements de route enfant
-    this.activatedRoute.firstChild?.url.subscribe((segments) => {
-      const route = segments[0]?.path;
-      this.updateActiveNavigation(route || 'dashboard');
-      this.updatePageTitle(route || 'dashboard');
+  constructor() {
+    this.router.events.subscribe(() => {
+      const currentRoute = this.router.url.split(';queryParams')[0].split('?')[0];
+      this.updatePageTitle(currentRoute);
+      this.updateActiveNavigation(currentRoute);
     });
   }
 
   private updateActiveNavigation(currentRoute: string): void {
     this.menuNavigation.forEach((item) => {
-      item.current = item.route.includes(currentRoute);
+      item.current = item.activeIfRoutes.includes(currentRoute);
     });
   }
 
   private updatePageTitle(route: string): void {
-    const titles: { [key: string]: string } = {
-      dashboard: 'Dashboard',
-      search: 'Chercher une offre',
-      'tableau-des-offres': 'Résultats de recherche',
-      'mes-offres': 'Mes Offres',
-      'mon-profil': 'Mon Profil',
-    };
-    this.pageTitleService.setPageTitle(titles[route] || 'Dashboard');
+    this.pageTitleService.setPageTitle(this.titlesMap.get(route) || 'Job Matcher');
   }
 
   protected gererDeconnection(route: string) {
-    if(route === '/login') {
+    if (route === '/login') {
       this.loginService.setLogged(false);
     }
   }

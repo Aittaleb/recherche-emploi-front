@@ -19,7 +19,6 @@ import { MatIcon } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatDivider } from '@angular/material/divider';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PageTitleService } from '../../services/page-title.service';
 
 @Component({
   selector: 'app-tableau-des-offres-component',
@@ -32,7 +31,6 @@ export class TableauDesOffresComponent implements AfterViewInit, OnInit {
   private readonly offreService = inject(OffresService);
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly router = inject(Router);
-  private readonly pageTitleService = inject(PageTitleService);
   readonly offres: WritableSignal<Offre[]> = signal([]);
   readonly offreDetails: WritableSignal<OffreDetails | null> = signal(null);
   readonly sidenavOpen: WritableSignal<boolean> = signal(false);
@@ -48,7 +46,6 @@ export class TableauDesOffresComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.pageTitleService.setPageTitle('Résultats de recherche');
     this.activatedRoute.queryParams.subscribe((params) => {
       const query = params['query'] || '';
       this.offreService.search(query).subscribe((data) => {

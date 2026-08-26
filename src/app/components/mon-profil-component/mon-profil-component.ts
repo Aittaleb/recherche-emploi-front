@@ -1,5 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { PageTitleService } from '../../services/page-title.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mon-profil-component',
@@ -8,9 +7,7 @@ import { PageTitleService } from '../../services/page-title.service';
   styleUrl: './mon-profil-component.css',
 })
 export class MonProfilComponent implements OnInit {
-  private readonly pageTitleService = inject(PageTitleService);
-
   ngOnInit(): void {
-    this.pageTitleService.setPageTitle('Mon Profil');
+    throw new Error('Method not implemented.');
   }
 }
