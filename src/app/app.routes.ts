@@ -6,18 +6,15 @@ import { ListeOffresComponenet } from './components/liste-offres-componenet/list
 import { TableauDesOffresComponent } from './components/tableau-des-offres-component/tableau-des-offres-component';
 import { RechercheOffre } from './components/recherche-offre/recherche-offre';
 import { DashboardComponent } from './components/dashboard-component/dashboard-component';
+import { authGuard } from './core/auth-gard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', redirectTo: '/app/dashboard', pathMatch: 'full' },
-  { path: 'search', redirectTo: '/app/search', pathMatch: 'full' },
-  { path: 'tableau-des-offres', redirectTo: '/app/tableau-des-offres', pathMatch: 'full' },
-  { path: 'mes-offres', redirectTo: '/app/mes-offres', pathMatch: 'full' },
-  { path: 'mon-profil', redirectTo: '/app/mon-profil', pathMatch: 'full' },
   {
     path: 'app',
     component: NavigationComponent,
+    canActivate: [authGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'search', component: RechercheOffre },

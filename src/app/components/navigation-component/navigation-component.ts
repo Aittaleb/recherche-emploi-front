@@ -9,6 +9,7 @@ import { RouterLink, RouterOutlet, ActivatedRoute } from '@angular/router';
 import { NgOptimizedImage, CommonModule } from '@angular/common';
 import { PageTitleService } from '../../services/page-title.service';
 import { NavigationItem, UserNavigationItem } from '../../models/navigation.model';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'ngm-dev-block-nav-with-page-header',
@@ -32,6 +33,7 @@ import { NavigationItem, UserNavigationItem } from '../../models/navigation.mode
 export class NavigationComponent implements OnInit {
   readonly pageTitleService = inject(PageTitleService);
   private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly loginService = inject(LoginService);
 
   menuNavigation: NavigationItem[] = [
     { name: 'Dashboard', route: '/app/dashboard', current: false },
@@ -70,4 +72,9 @@ export class NavigationComponent implements OnInit {
     this.pageTitleService.setPageTitle(titles[route] || 'Dashboard');
   }
 
+  protected gererDeconnection(route: string) {
+    if(route === '/login') {
+      this.loginService.setLogged(false);
+    }
+  }
 }

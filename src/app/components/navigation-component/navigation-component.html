@@ -25,7 +25,7 @@
         }
         <mat-divider />
         @for (item of userNavigation; track item) {
-          <a mat-list-item [routerLink]="item.route">
+          <a mat-list-item [routerLink]="item.route" (click)="gererDeconnection(item.route)">
             {{ item.name }}
           </a>
         }
