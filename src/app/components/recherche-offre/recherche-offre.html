@@ -1,4 +1,24 @@
-<mat-form-field MatFormFieldControl>
-  <mat-label>Chercher une offre</mat-label>
-  <input matInput [(ngModel)]="query">
-</mat-form-field>
+<div class="search-root">
+  <div class="search-panel">
+    <div class="search-title-block">
+      <p class="search-title">Recherche d'offres</p>
+      <p class="search-subtitle">Saisissez un mot-cle puis lancez la recherche.</p>
+    </div>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Chercher une offre</mat-label>
+      <input matInput [(ngModel)]="query" placeholder="Ex: Developpeur Java, Data Analyst..." />
+    </mat-form-field>
+
+    <div class="search-actions">
+      <button
+        type="button"
+        class="search-btn"
+        (click)="rechercherParMotCle(query)"
+        [disabled]="!query.trim()"
+      >
+        Rechercher
+      </button>
+    </div>
+  </div>
+</div>

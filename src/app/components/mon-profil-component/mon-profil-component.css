@@ -1,0 +1,131 @@
+:host {
+  display: block;
+}
+
+.profil-layout {
+  border-radius: 0.75rem;
+}
+
+.profil-overview {
+  display: grid;
+  gap: 1rem;
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.overview-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.overview-subtitle {
+  margin: 0.25rem 0 0;
+  opacity: 0.75;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.overview-card {
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  background: color-mix(in srgb, currentColor 3%, transparent);
+}
+
+.card-title {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.overview-card p {
+  margin: 0.25rem 0;
+}
+
+.competences-card mat-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.competences-card mat-chip-row {
+  border-radius: 999px;
+}
+
+.profil-sidenav {
+  border-left: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.sidenav-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidenav-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: color-mix(in srgb, currentColor 2%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.sidenav-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.sidenav-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+}
+
+.form-fields {
+  padding: 1rem;
+  overflow: auto;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.form-actions {
+  margin-top: auto;
+  padding: 1rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.form-actions button {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.spinner-container {
+  min-height: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

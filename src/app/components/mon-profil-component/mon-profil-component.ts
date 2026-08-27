@@ -4,7 +4,6 @@ import { UserService } from '../../services/user.service';
 import { ProfilService } from '../../services/profil.service';
 import { ProfilUtilisateur } from '../../models/profil.utilisateur.model';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { MatDivider } from '@angular/material/list';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { MatIcon } from '@angular/material/icon';
@@ -22,7 +21,6 @@ import { debounceTime, distinctUntilChanged, startWith } from 'rxjs';
   selector: 'app-mon-profil-component',
   imports: [
     MatButton,
-    MatDivider,
     MatProgressSpinner,
     MatSidenavContainer,
     MatIcon,

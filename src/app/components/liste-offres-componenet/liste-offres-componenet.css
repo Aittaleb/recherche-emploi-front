@@ -1,3 +1,108 @@
+:host {
+  display: block;
+}
+
 .boutton-revenir-recherche {
   margin-bottom: 10px;
+}
+
+.offres-layout {
+  border-radius: 0.75rem;
+}
+
+.boutton-voir-details {
+  border-radius: 999px;
+  padding-inline: 0.75rem;
+  min-width: 0;
+}
+
+.boutton-voir-details mat-icon {
+  font-size: 1.05rem;
+  margin-right: 0.15rem;
+}
+
+.details-sidenav {
+  border-left: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.details-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: color-mix(in srgb, currentColor 2%, transparent);
+}
+
+.details-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1rem 0.85rem;
+  background: inherit;
+}
+
+.details-title {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.35;
+  font-weight: 650;
+}
+
+.details-location {
+  margin: 0.35rem 0 0;
+  opacity: 0.75;
+  font-size: 0.88rem;
+}
+
+.details-content {
+  padding: 1rem;
+  overflow: auto;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.detail-section {
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.detail-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.detail-value {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.detail-description {
+  white-space: pre-line;
+  line-height: 1.45;
+}
+
+.details-actions {
+  margin-top: auto;
+  padding: 1rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+  background: inherit;
+}
+
+.details-actions button {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.spinner-container {
+  min-height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

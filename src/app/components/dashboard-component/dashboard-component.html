@@ -1,39 +1,62 @@
-<div class="relative h-96 overflow-hidden rounded-xl border border-dashed border-gray-400 opacity-75">
-  @if(affichagePret()) {
-    <div class="space-y-4">
-      <div>
-        <p class="text-body-medium text-gray-600 dark:text-gray-400">{{ 'Bonjour ' + this.currentUser().prenom  }}</p>
-        <p class="text-body-medium text-gray-600 dark:text-gray-400">Voici un aperçu de votre recherche</p>
-      </div>
+<div class="dashboard-root">
+  @if (affichagePret()) {
+    <mat-card class="dashboard-card" appearance="outlined">
+      <mat-card-header>
+        <div class="header-icon" mat-card-avatar>
+          <mat-icon>insights</mat-icon>
+        </div>
+        <mat-card-title>
+          {{ 'Bonjour ' + (currentUser().prenom || '') }}
+        </mat-card-title>
+        <mat-card-subtitle>Voici un apercu de votre recherche</mat-card-subtitle>
+      </mat-card-header>
 
-      <mat-divider></mat-divider>
+      <mat-card-content>
+        <div class="kpi-grid">
+          <div class="kpi-item">
+            <span class="kpi-label">Match moyen</span>
+            <span class="kpi-value">{{ dashboard().matchMoyen ?? 0 }}</span>
+          </div>
+          <div class="kpi-item">
+            <span class="kpi-label">Offres analysees</span>
+            <span class="kpi-value">{{ dashboard().nombreOffreAnalysees ?? 0 }}</span>
+          </div>
+          <div class="kpi-item">
+            <span class="kpi-label">Offres favorites</span>
+            <span class="kpi-value">{{ dashboard().nombreOffreFavories ?? 0 }}</span>
+          </div>
+          <div class="kpi-item">
+            <span class="kpi-label">Competences a developper</span>
+            <span class="kpi-value">{{ competencesADevelopper().length }}</span>
+          </div>
+        </div>
 
-      <div class="space-y-2">
-        <p class="text-label-medium font-medium">{{ 'MATCH MOYEN : ' + dashboard().matchMoyen }}</p>
-        <p class="text-label-medium font-medium">{{ 'OFFRES ANALYSÉES : ' + dashboard().nombreOffreAnalysees }}</p>
-      </div>
+        <section class="skills-section">
+          <p class="skills-title">Competences les plus manquantes</p>
+          @if (competencesADevelopper().length > 0) {
+            <mat-chip-set>
+              @for (competence of competencesADevelopper(); track competence.code) {
+                <mat-chip>
+                  <mat-icon>trending_up</mat-icon>
+                  {{ competence.libelle }}
+                </mat-chip>
+              }
+            </mat-chip-set>
+          } @else {
+            <p class="skills-empty">Aucune competence manquante detectee pour le moment.</p>
+          }
+        </section>
+      </mat-card-content>
 
-      <mat-divider></mat-divider>
-
-      <div class="space-y-2">
-        <p class="text-label-medium font-medium">{{ 'NOMBRE D\'OFFRES FAVORIES: ' + dashboard().nombreOffreFavories }}</p>
-        <p class="text-label-medium font-medium">{{ 'NOMBRE COMPETENCES A DEVELOPPER : ' + dashboard().competencesADevelopper?.length }}</p>
-      </div>
-
-      <mat-divider></mat-divider>
-      <div class="space-y-2">
-        <p class="text-body-medium text-gray-600 dark:text-gray-400">Compétences les plus manquantes :</p>
-        @for (competence of dashboard().competencesADevelopper; track competence.code) {
-          <p class="text-body-medium text-gray-600 dark:text-gray-400"> {{competence.libelle}} </p>
-        }
-      </div>
-      <div class="flex md:justify-start">
-        <button matButton="filled" (click)="allerSurRecherche()">Rechercher des offres</button>
-      </div>
-
-    </div>
+      <mat-card-actions align="end">
+        <button matButton="filled" (click)="allerSurRecherche()">
+          <mat-icon>search</mat-icon>
+          Rechercher des offres
+        </button>
+      </mat-card-actions>
+    </mat-card>
   } @else {
-    <div class="absolute inset-0 flex items-center justify-center">
+    <div class="spinner-container">
       <mat-spinner></mat-spinner>
     </div>
   }
