@@ -20,7 +20,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-liste-offres-componenet',
-  templateUrl: './liste-offres-componenet.html',
+  templateUrl: './liste-offres-resultats-componenet.html',
   changeDetection: ChangeDetectionStrategy.Default,
   imports: [
     MatListModule,
@@ -33,9 +33,9 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
     MatProgressSpinner,
     MatIconButton,
   ],
-  styleUrl: './liste-offres-componenet.css',
+  styleUrl: './liste-offres-resultats-componenet.css',
 })
-export class ListeOffresComponenet implements OnInit {
+export class ListeOffresResultatsComponenet implements OnInit {
   private readonly offresService = inject(OffresService);
   private readonly userService = inject(UserService);
   private readonly activatedRoute = inject(ActivatedRoute);

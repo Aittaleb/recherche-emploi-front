@@ -24,8 +24,8 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-tableau-des-offres-component',
-  templateUrl: './tableau-des-offres-component.html',
-  styleUrl: './tableau-des-offres-component.css',
+  templateUrl: './tableau-des-offres-sauvegardees-component.html',
+  styleUrl: './tableau-des-offres-sauvegardees-component.css',
   changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     MatTableModule,
@@ -40,7 +40,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
     MatProgressSpinner,
   ],
 })
-export class TableauDesOffresComponent implements AfterViewInit, OnInit {
+export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnInit {
   private readonly offreService = inject(OffresService);
   private readonly userService = inject(UserService);
   private readonly router = inject(Router);

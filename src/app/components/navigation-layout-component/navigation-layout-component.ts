@@ -13,8 +13,8 @@ import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'ngm-dev-block-nav-with-page-header',
-  templateUrl: './navigation-component.html',
-  styleUrl: './navigation-component.css',
+  templateUrl: './navigation-layout-component.html',
+  styleUrl: './navigation-layout-component.css',
 
   changeDetection: ChangeDetectionStrategy.Default,
   imports: [
@@ -30,7 +30,7 @@ import { LoginService } from '../../services/login.service';
     CommonModule,
   ],
 })
-export class NavigationComponent {
+export class NavigationLayoutComponent {
   readonly pageTitleService = inject(PageTitleService);
   private readonly router = inject(Router);
   private readonly loginService = inject(LoginService);
