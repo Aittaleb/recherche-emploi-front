@@ -10,7 +10,7 @@ import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatChipGrid, MatChipInput, MatChipInputEvent, MatChipRow } from '@angular/material/chips';
+import { MatChipGrid, MatChipInput, MatChipInputEvent, MatChipRemove, MatChipRow } from '@angular/material/chips';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger, MatOption } from '@angular/material/autocomplete';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Competence } from '../../models/competences.model';
@@ -34,6 +34,7 @@ import { debounceTime, distinctUntilChanged, startWith } from 'rxjs';
     MatInput,
     MatChipGrid,
     MatChipRow,
+    MatChipRemove,
     FormsModule,
     MatAutocompleteTrigger,
     MatChipInput,
