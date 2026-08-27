@@ -9,7 +9,7 @@ import {
   ViewChild,
   WritableSignal,
 } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Offre, OffreDetails } from '../../models/offres.model';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
 import { MatDivider } from '@angular/material/divider';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-tableau-des-offres-component',
@@ -35,6 +36,8 @@ import { UserService } from '../../services/user.service';
     MatIcon,
     CommonModule,
     MatDivider,
+    MatIconButton,
+    MatProgressSpinner,
   ],
 })
 export class TableauDesOffresComponent implements AfterViewInit, OnInit {
@@ -44,6 +47,7 @@ export class TableauDesOffresComponent implements AfterViewInit, OnInit {
   readonly offres: WritableSignal<Offre[]> = signal([]);
   readonly offreDetails: WritableSignal<OffreDetails | null> = signal(null);
   readonly sidenavOpen: WritableSignal<boolean> = signal(false);
+  readonly affichagePret = signal(false);
   displayedColumns: string[] = ['intituleOffre', 'lieuTravail', 'actions'];
   dataSource = new MatTableDataSource<Offre>(this.offres());
 
@@ -60,6 +64,7 @@ export class TableauDesOffresComponent implements AfterViewInit, OnInit {
     if (idUtilisateur) {
       this.offreService.getOffresFavorites(idUtilisateur).subscribe((data) => {
         this.offres.set(data);
+        this.affichagePret.set(true);
       });
     }
   }
@@ -85,8 +90,11 @@ export class TableauDesOffresComponent implements AfterViewInit, OnInit {
   }
 
   protected supprimerOffreFavorite(details: OffreDetails) {
-    this.offreService.supprimerOffre(details.id, this.userService.currentUser().id);
-    this.closeSidenav();
-    this.offres.set(this.offres().filter((offre) => offre.id !== details.id));
+    this.offreService
+      .supprimerOffre(details.id, this.userService.currentUser().id)
+      .subscribe(() => {
+        this.closeSidenav();
+        this.offres.set(this.offres().filter((offre) => offre.id !== details.id));
+      });
   }
 }

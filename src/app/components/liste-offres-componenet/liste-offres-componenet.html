@@ -1,91 +1,112 @@
-<div class="flex flex-col gap-2">
-  <p class="text-body-medium font-body-medium">
-    Une liste d'offre qui correspond à votre recherche est affichée ci-dessous. Vous pouvez consulter le detail de chaque offre et l'ajouter dans vos favorites.
-  </p>
-</div>
-<div class="flex md:justify-end boutton-revenir-recherche">
-  <button matButton="filled" (click)="revenirVersRecherche()">Revenir sur la recherche</button>
-</div>
-<mat-sidenav-container class="h-screen">
-  <div class="max-w-3xl mx-auto">
-      <mat-list>
-        @for (offre of this.offres(); track offre.identifiantFt; let last = $last) {
-          <mat-list-item>
-            <img ngSrc="job-search-item-icon.png"
-                 matListItemAvatar
-                 class="rounded-full" alt=""
-                width="50"
-                height="50"/>
-            <span matListItemTitle>
+@if(affichagePret()) {
+  <div class="flex flex-col gap-2">
+    <p class="text-body-medium font-body-medium">
+      {{ this.offres().length > 0 ?
+        'Une liste d\'offre qui correspond à votre recherche est affichée ci-dessous. Vous pouvez consulter le detail de chaque offre et l\'ajouter dans vos favorites.'
+      : 'Aucune offre trouvée pour votre recherche' }}
+    </p>
+  </div>
+  <div class="flex md:justify-end boutton-revenir-recherche">
+    <button matButton="filled" (click)="revenirVersRecherche()">Revenir sur la recherche</button>
+  </div>
+  @if(this.offres().length > 0) {
+    <mat-sidenav-container class="h-screen">
+      <div class="max-w-3xl mx-auto">
+        <mat-list>
+          @for (offre of this.offres(); track offre.identifiantFt; let last = $last) {
+            <mat-list-item>
+              <img ngSrc="job-search-item-icon.png"
+                   matListItemAvatar
+                   class="rounded-full" alt=""
+                   width="50"
+                   height="50"/>
+              <span matListItemTitle>
               {{ offre.intituleOffre }}
             </span>
-            <span matListItemLine>
+              <span matListItemLine>
               {{ offre.salaire ?? 'Salaire non précisé' }}
             </span>
-            <div matListItemMeta>
-              <div class="hidden sm:flex items-center gap-x-2">
-                <p class="text-sm">
-                  {{ offre.lieuTravail }} {{ offre.codePostal ? '-' + offre.codePostal : '' }}
-                </p>
-                <p>
-                  <button matButton="text" (click)="voirDetails(offre)" class="boutton-voir-details">Voir details</button>
-                </p>
+              <div matListItemMeta>
+                <div class="hidden sm:flex items-center gap-x-2">
+                  <p class="text-sm">
+                    {{ offre.lieuTravail }} {{ offre.codePostal ? '-' + offre.codePostal : '' }}
+                  </p>
+                  <p>
+                    <button matButton="text" (click)="voirDetails(offre)" class="boutton-voir-details">Voir details</button>
+                  </p>
+                </div>
+              </div>
+            </mat-list-item>
+            @if (!last) {
+              <mat-divider />
+            }
+          }
+        </mat-list>
+      </div>
+      <mat-sidenav position="end" [opened]="sidenavOpen()" mode="over" class="w-96">
+        @if (this.offreDetails(); as details) {
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-headline-medium font-headline-medium">{{ details.intituleOffre }}</h2>
+              <button mat-icon-button (click)="closeSidenav()">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <p class="text-body-medium text-gray-600 dark:text-gray-400">{{ details.lieuTravail }}</p>
+                <p class="text-body-small text-gray-500">{{ details.codePostal }}</p>
+              </div>
+
+              <mat-divider></mat-divider>
+
+              @if(details.typeContratLibelle) {
+                <div class="space-y-2">
+                  <p class="text-label-medium font-medium">Type de contrat</p>
+                  <p class="text-body-medium">{{ details.typeContratLibelle }}</p>
+                </div>
+              }
+
+              @if(details.dureeTravail) {
+                <div class="space-y-2">
+                  <p class="text-label-medium font-medium">Durée de travail</p>
+                  <p class="text-body-medium">{{ details.dureeTravail }}</p>
+                </div>
+              }
+
+              @if(details.experienceLibelle) {
+                <div class="space-y-2">
+                  <p class="text-label-medium font-medium">Expérience requise</p>
+                  <p class="text-body-medium">{{ details.experienceLibelle }}</p>
+                </div>
+              }
+
+              @if(details.salaire) {
+                <div class="space-y-2">
+                  <p class="text-label-medium font-medium">Salaire</p>
+                  <p class="text-body-medium">{{ details.salaire }}</p>
+                </div>
+              }
+
+              @if(details.description) {
+                <div class="space-y-2">
+                  <p class="text-label-medium font-medium">Description</p>
+                  <p class="text-body-medium">{{ details.description }}</p>
+                </div>
+              }
+
+              <div class="flex md:justify-start">
+                <button matButton="filled" (click)="ajouterDansFavories(details)">Ajouter dans favories</button>
               </div>
             </div>
-          </mat-list-item>
-          @if (!last) {
-            <mat-divider />
-          }
+          </div>
         }
-      </mat-list>
-  </div>
-  <mat-sidenav #sidenav position="end" [opened]="sidenavOpen()" mode="over" class="w-96">
-    <div class="p-6" *ngIf="offreDetails() as details">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-headline-medium font-headline-medium">{{ details.intituleOffre }}</h2>
-        <button mat-icon-button (click)="closeSidenav()">
-          <mat-icon>close</mat-icon>
-        </button>
-      </div>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  }
 
-      <div class="space-y-4">
-        <div>
-          <p class="text-body-medium text-gray-600 dark:text-gray-400">{{ details.lieuTravail }}</p>
-          <p class="text-body-small text-gray-500">{{ details.codePostal }}</p>
-        </div>
+} @else {
+  <mat-spinner></mat-spinner>
+}
 
-        <mat-divider></mat-divider>
-
-        <div *ngIf="details.typeContratLibelle" class="space-y-2">
-          <p class="text-label-medium font-medium">Type de contrat</p>
-          <p class="text-body-medium">{{ details.typeContratLibelle }}</p>
-        </div>
-
-        <div *ngIf="details.dureeTravail" class="space-y-2">
-          <p class="text-label-medium font-medium">Durée de travail</p>
-          <p class="text-body-medium">{{ details.dureeTravail }}</p>
-        </div>
-
-        <div *ngIf="details.experienceLibelle" class="space-y-2">
-          <p class="text-label-medium font-medium">Expérience requise</p>
-          <p class="text-body-medium">{{ details.experienceLibelle }}</p>
-        </div>
-
-        <div *ngIf="details.salaire" class="space-y-2">
-          <p class="text-label-medium font-medium">Salaire</p>
-          <p class="text-body-medium">{{ details.salaire }}</p>
-        </div>
-
-        <div *ngIf="details.description" class="space-y-2">
-          <p class="text-label-medium font-medium">Description</p>
-          <p class="text-body-medium">{{ details.description }}</p>
-        </div>
-
-        <div class="flex md:justify-start">
-          <button matButton="filled" (click)="ajouterDansFavories(details)">Ajouter dans favories</button>
-        </div>
-
-      </div>
-    </div>
-  </mat-sidenav>
-</mat-sidenav-container>

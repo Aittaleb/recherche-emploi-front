@@ -24,20 +24,15 @@ export class OffresService {
 
   sauvegarderOffre(idOffre: string, idUtilisateur: number) {
     const url = `/api/offres/favorites/${idOffre}/user/${idUtilisateur}`;
-    return this.httpClient.post(url, {}).subscribe(() => {
-      console.log('Offre sauvegardée avec succès');
-    });
+    return this.httpClient.post(url, {});
   }
 
   supprimerOffre(idTechnique: number | null , idUtilisateur: number | undefined) {
     console.log('supprimerOffre', idTechnique, idUtilisateur);
     if(!idTechnique || !idUtilisateur) {
-      return;
+      throw new Error('identifiant technique ou utilisateur manquant pour supprimer l\'offre');
     }
     const url = `/api/offres/favorites/${idTechnique}/user/${idUtilisateur}`;
-    console.log('supprimerOffre url', url);
-    return this.httpClient.delete(url).subscribe(() => {
-      console.log('Offre supprimée avec succès');
-    });
+    return this.httpClient.delete(url)
   }
 }
