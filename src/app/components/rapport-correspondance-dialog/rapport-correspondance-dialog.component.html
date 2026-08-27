@@ -1,0 +1,78 @@
+<div class="rapport-dialog">
+  <div class="dialog-topbar">
+    <button matButton="text" type="button" class="back-button" (click)="fermer()">
+      <mat-icon>arrow_back</mat-icon>
+      Retour à l'offre
+    </button>
+    <button mat-icon-button (click)="fermer()" aria-label="Fermer le rapport">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-dialog-content class="dialog-content">
+    <div class="header-block">
+      <p class="dialog-eyebrow">Analyse de compatibilité</p>
+      <h2 mat-dialog-title class="dialog-title">{{ data.offre.intituleOffre }}</h2>
+      <p class="dialog-meta">{{ scoreMessage }}</p>
+    </div>
+
+    <section class="score-section">
+      <div class="score-row">
+        <div class="score-value">{{ scorePercent }}%</div>
+        <div class="score-text">
+          <p class="section-label">Score de correspondance</p>
+          <p class="score-summary">Votre profil correspond à cette offre à ce niveau.</p>
+        </div>
+      </div>
+      <mat-progress-bar mode="determinate" [value]="scorePercent"></mat-progress-bar>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <section class="chip-section">
+      <div class="section-head">
+        <p class="section-label section-label-icon">
+          <mat-icon>check_circle</mat-icon>
+          Compétences correspondantes
+        </p>
+      </div>
+
+      @if (competencesTrouvees.length > 0) {
+        <mat-chip-set>
+          @for (competence of competencesTrouvees; track competence.code) {
+            <mat-chip class="chip-found">{{ competence.libelle }}</mat-chip>
+          }
+        </mat-chip-set>
+      } @else {
+        <p class="empty-state">Aucune compétence retrouvée pour cette offre.</p>
+      }
+    </section>
+
+    <section class="chip-section">
+      <div class="section-head">
+        <p class="section-label section-label-icon warning">
+          <mat-icon>warning</mat-icon>
+          Compétences à développer
+        </p>
+      </div>
+
+      @if (competencesManquantes.length > 0) {
+        <mat-chip-set>
+          @for (competence of competencesManquantes; track competence.code) {
+            <mat-chip class="chip-missing">{{ competence.libelle }}</mat-chip>
+          }
+        </mat-chip-set>
+      } @else {
+        <p class="empty-state">Aucune compétence manquante détectée.</p>
+      }
+    </section>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button matButton="filled" type="button" (click)="ajouterDansFavories()">
+      <mat-icon>favorite</mat-icon>
+      Ajouter aux favoris
+    </button>
+  </mat-dialog-actions>
+</div>
+

@@ -9,6 +9,6 @@ export class MatchingService {
   private readonly http = inject(HttpClient);
 
   getMatchingInformation(profilId: number, offreId: string) {
-    return this.http.get<RapportCorrespondance>(`/api/matching/${profilId}/offre/${offreId}`);
+    return this.http.get<RapportCorrespondance>(`/api/profil/${profilId}/offre/${offreId}/matching`);
   }
 }

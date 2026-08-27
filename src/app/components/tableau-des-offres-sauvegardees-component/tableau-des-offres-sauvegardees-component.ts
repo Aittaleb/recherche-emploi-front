@@ -21,6 +21,9 @@ import { MatDivider } from '@angular/material/divider';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatchingService } from '../../services/matching.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { RapportCorrespondanceDialogComponent } from '../rapport-correspondance-dialog/rapport-correspondance-dialog.component';
 
 @Component({
   selector: 'app-tableau-des-offres-component',
@@ -38,12 +41,15 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
     MatDivider,
     MatIconButton,
     MatProgressSpinner,
+    MatDialogModule,
   ],
 })
 export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnInit {
   private readonly offreService = inject(OffresService);
   private readonly userService = inject(UserService);
   private readonly router = inject(Router);
+  private readonly matchingService = inject(MatchingService);
+  private readonly dialog = inject(MatDialog);
   readonly offres: WritableSignal<Offre[]> = signal([]);
   readonly offreDetails: WritableSignal<OffreDetails | null> = signal(null);
   readonly sidenavOpen: WritableSignal<boolean> = signal(false);
@@ -96,5 +102,26 @@ export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnI
         this.closeSidenav();
         this.offres.set(this.offres().filter((offre) => offre.id !== details.id));
       });
+  }
+
+  protected genererRapportCorrespondance(details: OffreDetails) {
+    const idUtilisateur = this.userService.currentUser().id;
+    if (!idUtilisateur) {
+      return;
+    }
+
+    this.matchingService.getMatchingInformation(idUtilisateur, details.identifiantFt).subscribe((rapport) => {
+      this.dialog.open(RapportCorrespondanceDialogComponent, {
+        width: '640px',
+        maxWidth: '92vw',
+        maxHeight: '90vh',
+        autoFocus: false,
+        panelClass: 'rapport-dialog-panel',
+        data: {
+          offre: details,
+          rapport,
+        },
+      });
+    });
   }
 }
