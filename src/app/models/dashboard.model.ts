@@ -1,4 +1,8 @@
+import { Competence } from './competences.model';
 
 export type Dashboard = {
-  // à définir
-}
+  competencesADevelopper?: Competence[];
+  matchMoyen?: number;
+  nombreOffreAnalysees?: number;
+  nombreOffreFavories?: number;
+};

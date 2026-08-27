@@ -18,18 +18,28 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIcon } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatDivider } from '@angular/material/divider';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-tableau-des-offres-component',
   templateUrl: './tableau-des-offres-component.html',
   styleUrl: './tableau-des-offres-component.css',
   changeDetection: ChangeDetectionStrategy.Eager,
-  imports: [MatTableModule, MatButton, MatPaginator, MatPaginatorModule, MatSidenavModule, MatIcon, CommonModule, MatDivider],
+  imports: [
+    MatTableModule,
+    MatButton,
+    MatPaginator,
+    MatPaginatorModule,
+    MatSidenavModule,
+    MatIcon,
+    CommonModule,
+    MatDivider,
+  ],
 })
 export class TableauDesOffresComponent implements AfterViewInit, OnInit {
   private readonly offreService = inject(OffresService);
-  private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly userService = inject(UserService);
   private readonly router = inject(Router);
   readonly offres: WritableSignal<Offre[]> = signal([]);
   readonly offreDetails: WritableSignal<OffreDetails | null> = signal(null);
@@ -46,12 +56,12 @@ export class TableauDesOffresComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      const query = params['query'] || '';
-      this.offreService.search(query).subscribe((data) => {
+    const idUtilisateur = this.userService.currentUser().id;
+    if (idUtilisateur) {
+      this.offreService.getOffresFavorites(idUtilisateur).subscribe((data) => {
         this.offres.set(data);
       });
-    });
+    }
   }
 
   ngAfterViewInit() {
@@ -60,6 +70,7 @@ export class TableauDesOffresComponent implements AfterViewInit, OnInit {
 
   public voirDetails(element: Offre) {
     this.offreService.searchDetails(element.identifiantFt).subscribe((data) => {
+      data.id = element.id;
       this.offreDetails.set(data);
       this.sidenavOpen.set(true);
     });
@@ -71,5 +82,11 @@ export class TableauDesOffresComponent implements AfterViewInit, OnInit {
 
   public revenirVersRecherche() {
     this.router.navigate(['/app/search']);
+  }
+
+  protected supprimerOffreFavorite(details: OffreDetails) {
+    this.offreService.supprimerOffre(details.id, this.userService.currentUser().id);
+    this.closeSidenav();
+    this.offres.set(this.offres().filter((offre) => offre.id !== details.id));
   }
 }

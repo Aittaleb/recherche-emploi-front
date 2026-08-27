@@ -36,7 +36,7 @@ export class LoginComponent {
   });
 
   onSubmit() {
-    if (this.form.valid) {
+    //if (this.form.valid) {
       this.loginService.setLogged(true);
       this.router.navigate(['/app/dashboard']).then(() => {
         this.userService.setUser({
@@ -45,6 +45,6 @@ export class LoginComponent {
           prenom: 'Abdelhamid',
         });
       });
-    }
+    //}
   }
 }

@@ -18,8 +18,8 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'search', component: RechercheOffre },
-      { path: 'tableau-des-offres', component: TableauDesOffresComponent },
-      { path: 'mes-offres', component: ListeOffresComponenet },
+      { path: 'tableau-des-offres', component: ListeOffresComponenet },
+      { path: 'mes-offres', component: TableauDesOffresComponent },
       { path: 'mon-profil', component: MonProfilComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],

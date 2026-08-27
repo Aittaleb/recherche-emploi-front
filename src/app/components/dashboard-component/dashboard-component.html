@@ -1,24 +1,40 @@
-<div
-  class="relative h-96 overflow-hidden rounded-xl border border-dashed border-gray-400 opacity-75"
->
-  <svg class="absolute inset-0 h-full w-full stroke-gray-200 dark:stroke-gray-700" fill="none">
-    <defs>
-      <pattern
-        [id]="patternId()"
-        x="0"
-        y="0"
-        width="10"
-        height="10"
-        patternUnits="userSpaceOnUse"
-      >
-        <path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
-      </pattern>
-    </defs>
-    <rect
-      stroke="none"
-      [attr.fill]="'url(#' + patternId() + ')'"
-      width="100%"
-      height="100%"
-    ></rect>
-  </svg>
+<div class="relative h-96 overflow-hidden rounded-xl border border-dashed border-gray-400 opacity-75">
+  @if(affichagePret()) {
+    <div class="space-y-4">
+      <div>
+        <p class="text-body-medium text-gray-600 dark:text-gray-400">{{ 'Bonjour ' + this.currentUser().prenom  }}</p>
+        <p class="text-body-medium text-gray-600 dark:text-gray-400">Voici un aperçu de votre recherche</p>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="space-y-2">
+        <p class="text-label-medium font-medium">{{ 'MATCH MOYEN : ' + dashboard().matchMoyen }}</p>
+        <p class="text-label-medium font-medium">{{ 'OFFRES ANALYSÉES : ' + dashboard().nombreOffreAnalysees }}</p>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="space-y-2">
+        <p class="text-label-medium font-medium">{{ 'NOMBRE D\'OFFRES FAVORIES: ' + dashboard().nombreOffreFavories }}</p>
+        <p class="text-label-medium font-medium">{{ 'NOMBRE COMPETENCES A DEVELOPPER : ' + dashboard().competencesADevelopper?.length }}</p>
+      </div>
+
+      <mat-divider></mat-divider>
+      <div class="space-y-2">
+        <p class="text-body-medium text-gray-600 dark:text-gray-400">Compétences les plus manquantes :</p>
+        @for (competence of dashboard().competencesADevelopper; track competence.code) {
+          <p class="text-body-medium text-gray-600 dark:text-gray-400"> {{competence.libelle}} </p>
+        }
+      </div>
+      <div class="flex md:justify-start">
+        <button matButton="filled" (click)="allerSurRecherche()">Rechercher des offres</button>
+      </div>
+
+    </div>
+  } @else {
+    <div class="absolute inset-0 flex items-center justify-center">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
 </div>

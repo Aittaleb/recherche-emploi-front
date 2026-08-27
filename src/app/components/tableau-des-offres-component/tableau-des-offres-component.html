@@ -1,53 +1,57 @@
 <mat-sidenav-container class="h-screen">
   <div matSidenavContent class="w-full">
-    <div class="w-full md:max-w-7xl mx-auto p-4 md:p-6">
-      <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
-        <div class="flex flex-col gap-2">
-          <p class="text-body-medium font-body-medium">
-            Une liste d'offre qui correspond à votre recherche est affichée ci-dessous. Vous pouvez consulter le detail de chaque offre et l'ajouter dans vos favorites.
-          </p>
+    @if(offres().length > 0) {
+      <div class="w-full md:max-w-7xl mx-auto p-4 md:p-6">
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
+          <div class="flex flex-col gap-2">
+            <p class="text-body-medium font-body-medium">
+              Vos offres sauvegardées.
+            </p>
+          </div>
+          <div class="flex md:justify-end">
+            <button matButton="filled" (click)="revenirVersRecherche()">Revenir sur la recherche</button>
+          </div>
         </div>
-        <div class="flex md:justify-end">
-          <button matButton="filled" (click)="revenirVersRecherche()">Revenir sur la recherche</button>
-        </div>
+        <table mat-table [dataSource]="dataSource" class="mt-6">
+
+          <ng-container matColumnDef="intituleOffre">
+            <th mat-header-cell *matHeaderCellDef>Intitule Offre</th>
+            <td mat-cell *matCellDef="let element" class="font-medium">
+              {{ element.intituleOffre }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="lieuTravail">
+            <th mat-header-cell *matHeaderCellDef>Lieu de travail</th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              class="text-gray-500 dark:text-gray-400">
+              {{ element.lieuTravail }} {{ element.codePostal ? ' - ' + element.codePostal : '' }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element" class="density-3">
+              <button matButton="text" (click)="voirDetails(element)">Voir details</button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons
+                       aria-label="Selectionner page">
+        </mat-paginator>
       </div>
-      <table mat-table [dataSource]="dataSource" class="mt-6">
-
-        <ng-container matColumnDef="intituleOffre">
-          <th mat-header-cell *matHeaderCellDef>Intitule Offre</th>
-          <td mat-cell *matCellDef="let element" class="font-medium">
-            {{ element.intituleOffre }}
-          </td>
-        </ng-container>
-
-        <ng-container matColumnDef="lieuTravail">
-          <th mat-header-cell *matHeaderCellDef>Lieu de travail</th>
-          <td
-            mat-cell
-            *matCellDef="let element"
-            class="text-gray-500 dark:text-gray-400">
-            {{ element.lieuTravail }} {{ element.codePostal ? ' - ' + element.codePostal : '' }}
-          </td>
-        </ng-container>
-
-        <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let element" class="density-3">
-            <button matButton="text" (click)="voirDetails(element)">Voir details</button>
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     showFirstLastButtons
-                     aria-label="Selectionner page">
-      </mat-paginator>
-    </div>
+    } @else {
+      <p> Pas d'offres sauvegardées pour le moment.</p>
+    }
   </div>
 
-  <mat-sidenav #sidenav position="end" [opened]="sidenavOpen()" mode="over" class="w-96">
+  <mat-sidenav position="end" [opened]="sidenavOpen()" mode="over" class="w-96">
     <div class="p-6" *ngIf="offreDetails() as details">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-headline-medium font-headline-medium">{{ details.intituleOffre }}</h2>
@@ -88,6 +92,11 @@
           <p class="text-label-medium font-medium">Description</p>
           <p class="text-body-medium">{{ details.description }}</p>
         </div>
+
+        <div class="flex md:justify-start">
+          <button matButton="filled" (click)="supprimerOffreFavorite(details)">Supprimer des favories</button>
+        </div>
+
       </div>
     </div>
   </mat-sidenav>

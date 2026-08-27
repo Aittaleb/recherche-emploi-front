@@ -1,5 +1,5 @@
 export type Offre = {
-  id: string | null;
+  id: number | null;
   identifiantFt: string;
   intituleOffre: string;
   lieuTravail: string;
