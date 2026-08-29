@@ -16,6 +16,7 @@ import { Competence } from '../../models/competences.model';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { CompetencesService } from '../../services/competences.service';
 import { debounceTime, distinctUntilChanged, startWith } from 'rxjs';
+import { ToasterService } from '../../services/toaster.service';
 
 @Component({
   selector: 'app-mon-profil-component',
@@ -50,6 +51,7 @@ export class MonProfilComponent implements OnInit {
   private readonly userService = inject(UserService);
   private readonly profilService = inject(ProfilService);
   private readonly competencesService = inject(CompetencesService);
+  private readonly toasterService = inject(ToasterService);
   readonly announcer = inject(LiveAnnouncer);
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -161,6 +163,7 @@ export class MonProfilComponent implements OnInit {
     this.profilService.modifierProfil(idUtilisateur, payload).subscribe((data) => {
       this.profilUtilisateur.set(data);
       this.closeSidenav();
+      this.toasterService.showToast('Profil mis à jour avec succès !');
     });
   }
 

@@ -7,6 +7,7 @@ import { ListeOffresResultatsComponenet } from './liste-offres-resultats-compone
 import { OffresService } from '../../services/offres.service';
 import { UserService } from '../../services/user.service';
 import { MatchingService } from '../../services/matching.service';
+import { ToasterService } from '../../services/toaster.service';
 
 describe('ListeOffresResultatsComponenet', () => {
   let component: ListeOffresResultatsComponenet;
@@ -48,6 +49,10 @@ describe('ListeOffresResultatsComponenet', () => {
     navigate: vi.fn(),
   };
 
+  const toasterServiceMock = {
+    showToast: vi.fn(),
+  };
+
   beforeEach(async () => {
     vi.clearAllMocks();
     queryParams$ = new BehaviorSubject<Record<string, string>>({ query: 'angular' });
@@ -60,6 +65,7 @@ describe('ListeOffresResultatsComponenet', () => {
         { provide: MatchingService, useValue: matchingServiceMock },
         { provide: MatDialog, useValue: dialogMock },
         { provide: Router, useValue: routerMock },
+        { provide: ToasterService, useValue: toasterServiceMock },
         {
           provide: ActivatedRoute,
           useValue: { queryParams: queryParams$.asObservable() },
@@ -94,7 +100,7 @@ describe('ListeOffresResultatsComponenet', () => {
     component['ajouterDansFavories'](details);
 
     expect(offresServiceMock.sauvegarderOffre).toHaveBeenCalledWith('FT-1', 42);
-    expect(routerMock.navigate).toHaveBeenCalledWith(['/app/mes-offres']);
+    expect(toasterServiceMock.showToast).toHaveBeenCalledWith('Offre ajoutée aux favoris avec succès !',);
     expect(component.sidenavOpen()).toBe(false);
   });
 

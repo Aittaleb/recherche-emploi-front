@@ -5,29 +5,29 @@
         <div class="header-icon" mat-card-avatar>
           <mat-icon>insights</mat-icon>
         </div>
-        <mat-card-title>
+        <mat-card-title data-test="dashboard-title">
           {{ 'Bonjour ' + (currentUser().prenom || '') }}
         </mat-card-title>
-        <mat-card-subtitle>Voici un apercu de votre recherche</mat-card-subtitle>
+        <mat-card-subtitle>Voici un aperçu de votre recherche</mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
         <div class="kpi-grid">
           <div class="kpi-item">
             <span class="kpi-label">Match moyen</span>
-            <span class="kpi-value">{{ dashboard().matchMoyen ?? 0 }}</span>
+            <span class="kpi-value" data-test="match-moyen">{{ dashboard().matchMoyen ?? 0 }}</span>
           </div>
           <div class="kpi-item">
             <span class="kpi-label">Offres analysees</span>
-            <span class="kpi-value">{{ dashboard().nombreOffreAnalysees ?? 0 }}</span>
+            <span class="kpi-value" data-test="offres-analysees">{{ dashboard().nombreOffreAnalysees ?? 0 }}</span>
           </div>
           <div class="kpi-item">
             <span class="kpi-label">Offres favorites</span>
-            <span class="kpi-value">{{ dashboard().nombreOffreFavories ?? 0 }}</span>
+            <span class="kpi-value" data-test="nombre-favories">{{ dashboard().nombreOffreFavories ?? 0 }}</span>
           </div>
           <div class="kpi-item">
             <span class="kpi-label">Competences a developper</span>
-            <span class="kpi-value">{{ competencesADevelopper().length }}</span>
+            <span class="kpi-value" data-test="competences-a-developper">{{ competencesADevelopper().length }}</span>
           </div>
         </div>
 
@@ -36,7 +36,7 @@
           @if (competencesADevelopper().length > 0) {
             <mat-chip-set>
               @for (competence of competencesADevelopper(); track competence.code) {
-                <mat-chip>
+                <mat-chip data-test="competence-chip">
                   <mat-icon>trending_up</mat-icon>
                   {{ competence.libelle }}
                 </mat-chip>

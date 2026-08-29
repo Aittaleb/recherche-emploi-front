@@ -21,6 +21,7 @@ import {
 } from '../rapport-correspondance-dialog/rapport-correspondance-dialog.component';
 import { MatchingService } from '../../services/matching.service';
 import { MatDialog } from '@angular/material/dialog';
+import { ToasterService } from '../../services/toaster.service';
 
 @Component({
   selector: 'app-liste-offres-componenet',
@@ -45,6 +46,7 @@ export class ListeOffresResultatsComponenet implements OnInit {
   private readonly matchingService = inject(MatchingService);
   private readonly dialog = inject(MatDialog);
   private readonly router = inject(Router);
+  private readonly toasterService = inject(ToasterService);
 
   readonly sidenavOpen: WritableSignal<boolean> = signal(false);
   readonly offreDetails: WritableSignal<OffreDetails | null> = signal(null);
@@ -85,7 +87,7 @@ export class ListeOffresResultatsComponenet implements OnInit {
     if (idUtilisateur) {
       this.offresService.sauvegarderOffre(details.identifiantFt, idUtilisateur).subscribe(() => {
         this.closeSidenav();
-        this.allerDansOffresFavories();
+        this.toasterService.showToast('Offre ajoutée aux favoris avec succès !');
       });
     }
   }

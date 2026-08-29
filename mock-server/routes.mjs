@@ -5,20 +5,30 @@ import { join, dirname } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const routes = [
-  { prefix: '/api/offres?query=test', file: join(__dirname, 'mocks/offres.json') },
-  { regex: /^\/api\/offres\/[A-Z0-9]+$/, file: join(__dirname, 'mocks/offre-details.json') },
+  // Dashboard
   {
-    regex: /^\/api\/profil\/\d+$/,
-    file: join(__dirname, 'mocks/profil.json'),
+    regex: /^\/api\/dashboard\/user\/\d+$/,
+    file: join(__dirname, 'mocks/dashboard.json'),
   },
+  // Referentiel competences
+  { prefix: '/api/rome/competences', file: join(__dirname, 'mocks/competences.json') },
+  // Offres
+  { regex: /^\/api\/offres$/, file: join(__dirname, 'mocks/offres.json') },
+  { regex: /^\/api\/offres\/[A-Z0-9]+$/, file: join(__dirname, 'mocks/offre-details.json') },
+  // Matching
   {
     regex: /^\/api\/profil\/\d+\/offre\/[A-Z0-9]+\/matching$/,
     file: join(__dirname, 'mocks/matching.json'),
   },
-  { prefix: '/api/rome/competences', file: join(__dirname, 'mocks/competences.json') },
+  // Profil
   {
-    regex: /^\/api\/dashboard\/user\/\d+$/,
-    file: join(__dirname, 'mocks/user.json'),
+    regex: /^\/api\/profil\/\d+$/,
+    file: join(__dirname, 'mocks/profil.json'),
+  },
+  // Offres favorites
+  {
+    regex: /^\/api\/offres\/favorites\/[A-Z0-9]+\/user\/\d+$/,
+    file: join(__dirname, 'mocks/favorites.json'),
   },
   {
     regex: /^\/api\/offres\/favorites\/user\/\d+$/,

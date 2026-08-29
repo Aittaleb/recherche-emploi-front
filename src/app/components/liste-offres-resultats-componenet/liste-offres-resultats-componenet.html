@@ -14,24 +14,24 @@
       <div class="max-w-3xl mx-auto">
         <mat-list>
           @for (offre of this.offres(); track offre.identifiantFt; let last = $last) {
-            <mat-list-item>
+            <mat-list-item data-test="item-resultat-recherche">
               <img src="/job-search-item-icon.png"
                    matListItemAvatar
                    class="rounded-full" alt=""
                    width="50"
                    height="50"/>
-              <span matListItemTitle>
+              <span matListItemTitle data-test="intitule-offre">
               {{ offre.intituleOffre }}
-            </span>
-              <span matListItemLine>
+              </span>
+              <span matListItemLine data-test="salaire-offre">
               {{ offre.salaire ?? 'Salaire non précisé' }}
-            </span>
+              </span>
               <div matListItemMeta>
                 <div class="hidden sm:flex items-center gap-x-3">
-                  <p class="text-sm">
+                  <p class="text-sm" data-test="lieu-offre">
                     {{ offre.lieuTravail }} {{ offre.codePostal ? '-' + offre.codePostal : '' }}
                   </p>
-                  <button matButton="tonal" (click)="voirDetails(offre)" class="boutton-voir-details">
+                  <button matButton="tonal" (click)="voirDetails(offre)" class="boutton-voir-details" data-test="bouton-voir-details">
                     <mat-icon>visibility</mat-icon>
                     Voir details
                   </button>
@@ -49,10 +49,10 @@
           <div class="details-panel">
             <div class="details-header">
               <div>
-                <h2 class="details-title">{{ details.intituleOffre }}</h2>
-                <p class="details-location">{{ details.lieuTravail }} {{ details.codePostal ? ('- ' + details.codePostal) : '' }}</p>
+                <h2 class="details-title" data-test="titre-details">{{ details.intituleOffre }}</h2>
+                <p class="details-location" data-test="localisation-details">{{ details.lieuTravail }} {{ details.codePostal ? ('- ' + details.codePostal) : '' }}</p>
               </div>
-              <button mat-icon-button (click)="closeSidenav()" aria-label="Fermer le panneau de details">
+              <button mat-icon-button (click)="closeSidenav()" aria-label="Fermer le panneau de details" data-test="bouton-fermer-details">
                 <mat-icon>close</mat-icon>
               </button>
             </div>
@@ -63,35 +63,35 @@
               @if(details.typeContratLibelle) {
                 <section class="detail-section">
                   <p class="detail-label">Type de contrat</p>
-                  <p class="detail-value">{{ details.typeContratLibelle }}</p>
+                  <p class="detail-value" data-test="type-contrat-details">{{ details.typeContratLibelle }}</p>
                 </section>
               }
 
               @if(details.dureeTravail) {
                 <section class="detail-section">
                   <p class="detail-label">Durée de travail</p>
-                  <p class="detail-value">{{ details.dureeTravail }}</p>
+                  <p class="detail-value" data-test="duree-travail-details">{{ details.dureeTravail }}</p>
                 </section>
               }
 
               @if(details.experienceLibelle) {
                 <section class="detail-section">
                   <p class="detail-label">Expérience requise</p>
-                  <p class="detail-value">{{ details.experienceLibelle }}</p>
+                  <p class="detail-value" data-test="experience-libelle-details">{{ details.experienceLibelle }}</p>
                 </section>
               }
 
               @if(details.salaire) {
                 <section class="detail-section">
                   <p class="detail-label">Salaire</p>
-                  <p class="detail-value">{{ details.salaire }}</p>
+                  <p class="detail-value" data-test="salaire-details">{{ details.salaire }}</p>
                 </section>
               }
 
               @if(details.description) {
                 <section class="detail-section">
                   <p class="detail-label">Description</p>
-                  <p class="detail-value detail-description">{{ details.description }}</p>
+                  <p class="detail-value detail-description" data-test="description-details">{{ details.description }}</p>
                 </section>
               }
             </div>

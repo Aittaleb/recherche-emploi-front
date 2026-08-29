@@ -7,12 +7,13 @@
 
     <mat-form-field class="w-full" appearance="outline">
       <mat-label>Chercher une offre</mat-label>
-      <input matInput [(ngModel)]="query" placeholder="Ex: Developpeur Java, Data Analyst..." />
+      <input matInput [(ngModel)]="query" placeholder="Ex: Developpeur Java, Data Analyst..." data-test="input-recherche" />
     </mat-form-field>
 
     <div class="search-actions">
       <button
         type="button"
+        data-test="bouton-rechercher"
         class="search-btn"
         (click)="rechercherParMotCle(query)"
         [disabled]="!query.trim()"

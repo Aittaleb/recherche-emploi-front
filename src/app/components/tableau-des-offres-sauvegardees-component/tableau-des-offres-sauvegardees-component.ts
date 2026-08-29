@@ -24,6 +24,7 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatchingService } from '../../services/matching.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RapportCorrespondanceDialogComponent } from '../rapport-correspondance-dialog/rapport-correspondance-dialog.component';
+import { ToasterService } from '../../services/toaster.service';
 
 @Component({
   selector: 'app-tableau-des-offres-component',
@@ -50,6 +51,7 @@ export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnI
   private readonly router = inject(Router);
   private readonly matchingService = inject(MatchingService);
   private readonly dialog = inject(MatDialog);
+  private readonly toasterService = inject(ToasterService);
   readonly offres: WritableSignal<Offre[]> = signal([]);
   readonly offreDetails: WritableSignal<OffreDetails | null> = signal(null);
   readonly sidenavOpen: WritableSignal<boolean> = signal(false);
@@ -101,6 +103,7 @@ export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnI
       .subscribe(() => {
         this.closeSidenav();
         this.offres.set(this.offres().filter((offre) => offre.id !== details.id));
+        this.toasterService.showToast('Offre supprimée des favoris avec succès !');
       });
   }
 
