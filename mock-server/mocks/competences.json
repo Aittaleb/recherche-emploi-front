@@ -1,0 +1,1402 @@
+[
+  {
+    "code": "519057",
+    "libelle": "Anticiper les risques opérationnels, financiers et techniques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519073",
+    "libelle": "Evaluer les résultats financiers et artistiques après chaque date ou fin de tournée",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519111",
+    "libelle": "Développer et animer des dispositifs d'information, de concertation et de participation avec les publics : habitants, usagers, associations, entreprises",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519114",
+    "libelle": "Evaluer les conditions de faisabilité des projets au regard des schémas et des axes d'intervention définis par la collectivité",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519173",
+    "libelle": "Collaborer avec les différents services internes (marketing, commercial, relation client, systèmes d'information, direction, etc.)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519176",
+    "libelle": "Etre le garant de la réglementation, des normes de sécurité et environnementales (mise en conformité, pilotage des risques, règles RGPD, recyclage des produits, etc.)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519316",
+    "libelle": "Participer à des missions de renseignement",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519360",
+    "libelle": "Réparer et remplacer des équipements de piscine",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519371",
+    "libelle": "Appliquer les règles du Code rural concernant la divagation et les fourrières",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519383",
+    "libelle": "Planifier les dates, transports, hébergements et besoins matériels",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519396",
+    "libelle": "Effectuer une mission en régime de vol aux instruments",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519426",
+    "libelle": "Animer le magasin par des écoutes, des showcases ou des évènements thématiques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519456",
+    "libelle": "Recommander les outils adaptés (ciseaux, cutters, feutres techniques, pinceaux, perforatrices, tampons) selon les projets des clients",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519479",
+    "libelle": "Conseiller les clients sur les solutions d'aménagement",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519532",
+    "libelle": "Effectuer le largage de parachutistes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519565",
+    "libelle": "Mettre en œuvre certaines épreuves théoriques générales du permis de conduire",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519583",
+    "libelle": "Utiliser les équipements de transmission sur un navire militaire",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519585",
+    "libelle": "Avoir une connaissance approfondie des règles de navigation et de la réglementation maritime",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519610",
+    "libelle": "Créer ou modifier des dessins selon les demandes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519615",
+    "libelle": "Analyser des radiographies et empreintes dentaires pour établir un plan de traitement",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519660",
+    "libelle": "Informer les parties sur leurs droits, obligations et recours possibles",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519684",
+    "libelle": "Travailler sur sa propre pratique par la supervision et l'analyse personnelle",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519705",
+    "libelle": "Réaliser une plongée pour participer à des opérations de service public (sauvetage, plongée sur épave, etc.)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519744",
+    "libelle": "Etablir un programme de soins si nécessaire qui permettront au cheval de retrouver une situation confortable pour s'alimenter et/ou travailler",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519789",
+    "libelle": "Réaliser des épreuves d'effort et en interpréter les résultats",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519791",
+    "libelle": "Analyser les difficultés d'écriture (lenteur, illisibilité, douleurs, fatigue, crispations)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519802",
+    "libelle": "Contrôler la conformité des prestations réalisées et le respect des engagements",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519804",
+    "libelle": "Prioriser les demandes en fonction du degré d'urgence et des contraintes opérationnelles",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519830",
+    "libelle": "Organiser l'exécution et le contrôle des règles d'hygiène et des missions réglementaires",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519838",
+    "libelle": "Réaliser une veille concurrentielle et sectorielle",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519843",
+    "libelle": "Gérer les appels d'offres et consultations grands comptes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519877",
+    "libelle": "Collaborer avec les parents pour soutenir l'éducation des enfants",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519882",
+    "libelle": "Contribuer à l'inclusion scolaire des élèves en situation de handicap",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519888",
+    "libelle": "Collaborer avec les équipes éducatives et pluridisciplinaires",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519910",
+    "libelle": "Informer et orienter les acteurs économiques vers les dispositifs d'aides, subventions et accompagnements existants",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519949",
+    "libelle": "Se tenir informé des dernières avancées en matière de radioprotection",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "520005",
+    "libelle": "Identifier visuellement les flux et les matières",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "520024",
+    "libelle": "Siéger au ComEX (Comité exécutif) de l'entreprise",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "520188",
+    "libelle": "Piloter les indicateurs de performance (KPI, RSE, marges, volumes)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "520296",
+    "libelle": "Anticiper des besoins nouveaux",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "520318",
+    "libelle": "Constater les crimes et les délits",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "520388",
+    "libelle": "Identifier les articles qui se vendent difficilement",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "520420",
+    "libelle": "Procéder à la trempe (chauffage et refroidissement rapides)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "520640",
+    "libelle": "Superviser les aspects administratifs de la production",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516463",
+    "libelle": "Optimiser l'agencement de l'espace de stockage pour accélérer les flux de produits",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516480",
+    "libelle": "Analyser les données environnementales des aires marines",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516484",
+    "libelle": "Proposer des améliorations pour la gestion des aires marines",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516491",
+    "libelle": "Traiter les informations relatives aux espèces menacées",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516494",
+    "libelle": "Analyser les besoins des parties prenantes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "503969",
+    "libelle": "Effectuer des analyses comparatives pour évaluer l'efficacité fiscale",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "504298",
+    "libelle": "Gérer les relations avec les avocats et les conseils externes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "504926",
+    "libelle": "Accompagner les personnes dans leur parcours de soin",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505020",
+    "libelle": "Implémenter des stratégies d'amélioration continue",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505030",
+    "libelle": "Utiliser des équipements de neuroimagerie de pointe",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505198",
+    "libelle": "Surveiller le respect des règles de sécurité routière",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505379",
+    "libelle": "Analyser les dossiers juridiques des clients",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505381",
+    "libelle": "Plaider devant les juridictions compétentes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505384",
+    "libelle": "Gérer les relations avec les partenaires juridiques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505588",
+    "libelle": "Maintenir une hygiène irréprochable des instruments et du lieu de vente",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505757",
+    "libelle": "Organiser des groupes de soutien pour la réhabilitation",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505836",
+    "libelle": "Analyser les comportements d'achat des clients",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "505866",
+    "libelle": "Intervenir en cas d'incident ou d'urgence",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506124",
+    "libelle": "Planifier les sessions de formation pour les employés",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506177",
+    "libelle": "Analyser les dossiers de faillite",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506188",
+    "libelle": "Etablir des plans de redressement",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506189",
+    "libelle": "Superviser les opérations de vente d'actifs",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506527",
+    "libelle": "Analyser des manuscrits anciens",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506531",
+    "libelle": "Evaluer l'authenticité de documents anciens",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506635",
+    "libelle": "Proposer des solutions d'optimisation fiscale",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "507201",
+    "libelle": "Encourager l'expression des émotions de manière constructive",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "508654",
+    "libelle": "Coordonner les activités des équipes sur différents points de vente",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "521536",
+    "libelle": "Réaliser des opérations de remplacement de pneumatiques sur des véhicules de transport routier (démontage ou remontage, permutation, équilibrage)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "521609",
+    "libelle": "Signaler les dysfonctionnements des dispositifs de sécurité",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518171",
+    "libelle": "Charger et décharger des stocks de grumes avec son ensemble routier",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518273",
+    "libelle": "Participer à la conception, l'élaboration et la mise en œuvre des politiques publiques relatives à la santé publique vétérinaire",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518337",
+    "libelle": "Innover dans les matériaux composites et les technologies de réduction des émissions",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518398",
+    "libelle": "Alerter l'autorité territoriale d'un risque relatif à la sécurité et à l'ordre public sur les voies publiques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518441",
+    "libelle": "Maintenir la qualité sonore des instruments",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518495",
+    "libelle": "Diffuser auprès des professionnels de santé les référentiels de bonnes pratiques médicales, les conditions de prise en charge et les dispositifs conventionnels",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518562",
+    "libelle": "Représenter sa direction et organiser un travail en réseau avec les acteurs internes et externes, en milieu national et international",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518582",
+    "libelle": "Initier des transformations, mobiliser autour du projet et s'assurer du respect des engagements",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "522384",
+    "libelle": "Piloter la rénovation et la réhabilitation des installations",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518646",
+    "libelle": "Planifier les rotations de personnel pour couvrir tous les shifts",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518750",
+    "libelle": "Collaborer avec les services de maintenance pour garantir la sécurité des équipements",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518792",
+    "libelle": "Organiser la montée en puissance et le déploiement des moyens opérationnels",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518822",
+    "libelle": "Conseiller sur le choix des accessoires adaptés (mode, bijoux, maroquinerie, etc.)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518825",
+    "libelle": "Réapprovisionner les rayons et veiller à la bonne présentation des articles",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518837",
+    "libelle": "Nettoyer, écailler, éviscérer et fileter les poissons selon les spécifications du produit final",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518841",
+    "libelle": "Conseiller sur le choix des articles de puériculture adaptés",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518842",
+    "libelle": "Démontrer l'utilisation des équipements (poussettes, sièges auto, porte-bébés, etc.)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518845",
+    "libelle": "Collaborer avec l'équipe (caisse, SAV, responsables de rayon)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518854",
+    "libelle": "Sélectionner des éléments de langage",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518868",
+    "libelle": "Analyser les besoins du patient ou du client en fonction de sa situation médicale",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518870",
+    "libelle": "Conseiller sur le choix de dispositifs médicaux adaptés (fauteuils roulants, lits médicalisés, orthèses, etc.)",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518875",
+    "libelle": "Installer les équipements chez les patients à domicile",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518880",
+    "libelle": "Contrôler régulièrement l'état des matériels prêtés ou loués",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518884",
+    "libelle": "Rédiger les devis, bons de commande et dossiers administratifs",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518885",
+    "libelle": "Conseiller sur les modalités de prise en charge par l'assurance maladie ou les mutuelles",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518902",
+    "libelle": "Analyser les informations fournies afin de produire un texte clair et précis",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "518903",
+    "libelle": "Réécrire ou corriger des documents pour améliorer leur style, leur cohérence et leur orthographe",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "519771",
+    "libelle": "Utilisation de logiciels de monitoring énergétique",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "519862",
+    "libelle": "Mise à jour des connaissances en optique",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "519915",
+    "libelle": "Leadership territorial et sens du partenariat",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "519926",
+    "libelle": "Réglementation des matériaux résistants au feu",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520063",
+    "libelle": "Procédures internes d'entretien des bâtiments",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520108",
+    "libelle": "Principes de la scénographie d'expositions",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520164",
+    "libelle": "Techniques de peinture acrylique",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520305",
+    "libelle": "Technologie textile (propriétés, composants)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520381",
+    "libelle": "Pratique des plongées nitrox aux mélanges gazeux",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520382",
+    "libelle": "Découpage sous-marin",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520393",
+    "libelle": "Processus pétroliers",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520406",
+    "libelle": "Ergonomie au poste de tri",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520407",
+    "libelle": "Méthodes de caractérisation des déchets",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520478",
+    "libelle": "Caractéristiques des matériaux métalliques et de leurs alliages",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520604",
+    "libelle": "Economie sociale et solidaire",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520615",
+    "libelle": "Procédés photographiques et graphiques (qualité des images, taille, résolution)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520649",
+    "libelle": "Techniques de pitch pour projets audiovisuels",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520813",
+    "libelle": "Contextes multiculturels",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "520873",
+    "libelle": "Outils de montage",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521053",
+    "libelle": "Analyse des risques chantier (terrain, sécurité, environnement,etc.)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521066",
+    "libelle": "Caractéristiques des prix du marché",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521076",
+    "libelle": "Conduite de véhicules légers",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521085",
+    "libelle": "Coordination des différents intervenants du processus créatif",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521096",
+    "libelle": "Eco-conception des réseaux",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521104",
+    "libelle": "Fonctionnement de l'industrie et du secteur de l'édition",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521132",
+    "libelle": "Matériels de comptage traitement, de valorisation, de conditionnement, de poinçonnage des bijoux",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521162",
+    "libelle": "Règlementation douanière européenne et française",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521168",
+    "libelle": "Réglementation liée à la vérification/installation des dispositifs embarqués",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521173",
+    "libelle": "Respect de l'itinéraire et du temps de conduite",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521177",
+    "libelle": "Sécurité des données et conformité RGPD",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521206",
+    "libelle": "Utilisation de commande d'aiguillage (électromécanique, électrique, informatique, etc.)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521207",
+    "libelle": "GPS professionnels",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521965",
+    "libelle": "Formation des cadres dirigeants de la sécurité sociale",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521971",
+    "libelle": "DUT génie biologique option industries agroalimentaires et biologiques",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521978",
+    "libelle": "Master droit, économie, gestion mention administration et échanges internationaux",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522418",
+    "libelle": "DMA arts graphiques option gravure",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522484",
+    "libelle": "BUT spécialité science et génie des matériaux parcours métiers de la caractérisation et de l'expertise des matériaux et des produits",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522487",
+    "libelle": "Diplôme d'études spécialisées néphrologie",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522498",
+    "libelle": "Technicien veilleur de cybersécurité",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522506",
+    "libelle": "Chef d'équipe de maintenance aéronautique : option aérostructure",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522526",
+    "libelle": "CQP technicien de cellule autonome pluri-technologique",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522539",
+    "libelle": "Ingénieur systèmes, réseaux et cybersécurité",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522547",
+    "libelle": "Ingénieur diplômé de l'école d'ingénieurs de l'université de Caen spécialité génie énergétique",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522553",
+    "libelle": "CQP chef d'équipe logistique en commerces de gros",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522569",
+    "libelle": "Titre professionnel couturier en atelier mode et luxe",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522573",
+    "libelle": "Master mention ingénierie des systèmes complexes",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522580",
+    "libelle": "BTS collaborateur juriste notarial",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522587",
+    "libelle": "Ingénieur diplômé de l'institut supérieur des matériaux du Mans",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522591",
+    "libelle": "Collaborateur juriste notarial",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522630",
+    "libelle": "Titre professionnel technicien informatique de proximité",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522643",
+    "libelle": "Ingénieur diplômé de l'université Paris 13 spécialité télécommunications et réseaux",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522652",
+    "libelle": "CQP outilleur de forme - moules et matrices",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522662",
+    "libelle": "Titre professionnel responsable de services en établissement touristique",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522665",
+    "libelle": "Certificat d'aptitude à l'hyperbarie mention B : autres activités subaquatiques classes I, II, III",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522666",
+    "libelle": "Certificat d'aptitude à l'hyperbarie mention C : activités d'hyperbariste médical classes I, II, III",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515477",
+    "libelle": "Gestion des aires marines protégées",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515489",
+    "libelle": "Droit international de la mer",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515503",
+    "libelle": "Analyse des risques et opportunités",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515508",
+    "libelle": "Procédures de sécurité en zone aéroportuaire",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515512",
+    "libelle": "Techniques de prévention des accidents sur piste",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515516",
+    "libelle": "Techniques de tri et de manutention des bagages",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515534",
+    "libelle": "Gestion des zones de pêche",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515537",
+    "libelle": "Pratiques de pêche responsable",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515538",
+    "libelle": "Politiques de pêche durable",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515546",
+    "libelle": "Gestion de données environnementales",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515560",
+    "libelle": "Planification des ressources portuaires",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515578",
+    "libelle": "Techniques d'étiquetage scientifique",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515612",
+    "libelle": "Maîtrise des équipements de tournage",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "515620",
+    "libelle": "Gestion des archives vidéo",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521951",
+    "libelle": "Ingénieur diplômé de l'institut national des sciences appliquées de Rennes spécialité génie civil et urbain (Université de Rennes)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521972",
+    "libelle": "DUT science et génie des matériaux",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521977",
+    "libelle": "Ingénieur diplômé de l'école d'ingénieurs de l'université de Toulon",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521983",
+    "libelle": "Titre professionnel ouvrier de production horticole",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "521998",
+    "libelle": "Master mention mathématiques physiques",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522003",
+    "libelle": "BUT spécialité mesures physiques parcours techniques d'instrumentation",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522007",
+    "libelle": "Titre professionnel chargé d'affaires du bâtiment",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522014",
+    "libelle": "Titre professionnel technicien supérieur en fabrication additive",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522058",
+    "libelle": "Diplôme d'Etat d'alpinisme - accompagnateur en moyenne montagne option concevoir, conduire en sécurité et évaluer une randonnée en milieu montagnard tropical et équatorial en période de fortes précipitations, pour tout public",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522068",
+    "libelle": "Gestionnaire du patrimoine arboré",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522069",
+    "libelle": "Manager du marketing et de la relation client",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522096",
+    "libelle": "Adjoint polyvalent de sécurité",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522114",
+    "libelle": "Diplôme d'études supérieures spécialisées en finance",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522115",
+    "libelle": "Diplôme en économie et finance",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522129",
+    "libelle": "Coordonnateur en soudage de structures métalliques en acier selon EN 1090-2 (EWCP)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522138",
+    "libelle": "Contentieux de la sécurité sociale",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522142",
+    "libelle": "Droit du transport de marchandises international",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522201",
+    "libelle": "Stratégies de marketing musical et de promotion digitale",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522211",
+    "libelle": "Organisation et structuration des catalogues musicaux",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522414",
+    "libelle": "Diplôme d'études spécialisées d'orthopédie dento-faciale",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522432",
+    "libelle": "Ingénieur diplômé de l'école polytechnique universitaire de l'université d'Aix-Marseille spécialité matériaux",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522442",
+    "libelle": "CQP retoucheur tôle nue sur ligne de fabrication de véhicules",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522456",
+    "libelle": "Restaurateur du patrimoine option peinture",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522458",
+    "libelle": "Titre professionnel technicien de production en plasturgie",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522476",
+    "libelle": "BMA spécialité arts graphiques option A : signalétique",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522478",
+    "libelle": "Titre professionnel tuyauteur industriel",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522490",
+    "libelle": "CQP ajusteur assembleur de structures aéronefs",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522492",
+    "libelle": "Technicien spécialisé en maintenance avancée",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522512",
+    "libelle": "Responsable comptable",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522529",
+    "libelle": "Manager comptable et financier",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522530",
+    "libelle": "Manager des risques industriels (MS)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522545",
+    "libelle": "Certificat de spécialisation technicien ascensoriste (service et modernisation)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522546",
+    "libelle": "Certificat de spécialisation joaillerie",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522562",
+    "libelle": "Bachelor en sciences et ingénierie - géosciences et environnement",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522564",
+    "libelle": "CQP chef d'équipe logistique en commerces de gros de l'habillement, de la mercerie, de la chaussure et du jouet",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522572",
+    "libelle": "Master mention psychologie de l'éducation et de la formation",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522586",
+    "libelle": "Master mention archives",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522594",
+    "libelle": "CQP expert en polissage",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522633",
+    "libelle": "Ingénieur diplômé de l'école nationale des sciences géographiques (Université Gustave Eiffel)",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "522668",
+    "libelle": "Certificat d'aptitude à l'hyperbarie",
+    "type": "SAVOIR"
+  },
+  {
+    "code": "506450",
+    "libelle": "Gérer les relations avec les parties prenantes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506501",
+    "libelle": "Développer des stratégies de placement produit",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "506897",
+    "libelle": "Evaluer les investissements financiers",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "507063",
+    "libelle": "Construire des projets de recherche en linguistique appliquée",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "507200",
+    "libelle": "Maintenir la confidentialité des informations partagées",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "512842",
+    "libelle": "Assurer la conformité des prestations avec les réglementations",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "512936",
+    "libelle": "Contrôler l'amarrage d'un bateau",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "512957",
+    "libelle": "Coordonner les actions à mener en situation d'urgence",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "513019",
+    "libelle": "Etablir un coût prévisionnel de son périmètre",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "513104",
+    "libelle": "Informer les voyageurs et leur porter assistance",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "513187",
+    "libelle": "Participer aux manœuvres d'accostage ou d'appareillage du bateau",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "513191",
+    "libelle": "Piloter et optimiser le budget de l'exploitation",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "513374",
+    "libelle": "Respecter les dispositions légales liées à l'assermentation",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "513398",
+    "libelle": "Sécuriser les voyageurs et alerter les services compétents de gendarmerie, pompiers en cas d'incidents",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517611",
+    "libelle": "Evaluer la performance des chauffeurs",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "507062",
+    "libelle": "Agir face à des anomalies dans des corpus de texte",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "507202",
+    "libelle": "Analyser les situations conflictuelles pour proposer des solutions adaptées",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "508348",
+    "libelle": "Résoudre les conflits au sein des équipes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "500898",
+    "libelle": "Proposer des stratégies d'investissement basées sur l'analyse financière",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "501440",
+    "libelle": "Assurer le suivi des investissements et des financements",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "501479",
+    "libelle": "Développer des outils de reporting de risque",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516500",
+    "libelle": "Assurer une veille sur les évolutions législatives et réglementaires",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516519",
+    "libelle": "Organiser les rotations des équipes de travail portuaire",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516526",
+    "libelle": "Superviser les opérations de nettoyage et de maintenance du port",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "500112",
+    "libelle": "Analyser les besoins du client pour proposer des solutions financières adaptées",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "500295",
+    "libelle": "Contrôler la qualité du travail effectué",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516640",
+    "libelle": "Faciliter la communication entre les différents acteurs aériens",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516668",
+    "libelle": "Proposer des solutions pour augmenter la rentabilité du port",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516682",
+    "libelle": "Assurer la conformité environnementale des opérations",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516708",
+    "libelle": "Evaluer les risques potentiels sur les voies pour prévenir les accidents",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516730",
+    "libelle": "Gérer les relations avec les banques pour les aspects financiers des transactions",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516779",
+    "libelle": "Gérer les urgences nautiques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516786",
+    "libelle": "Assurer la maintenance de premier niveau des machines",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516815",
+    "libelle": "Réaliser des mises à jour logicielles des systèmes électroniques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516839",
+    "libelle": "Former les nouveaux employés sur les procédures de piste",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516843",
+    "libelle": "Assurer une transition fluide entre les équipes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516894",
+    "libelle": "Elaborer des plans de gestion des ressources marines",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516919",
+    "libelle": "Suivre les évolutions technologiques dans le domaine nautique",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516944",
+    "libelle": "Analyser les données de performance des expéditions",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516957",
+    "libelle": "Analyser les spécifications techniques pour la réparation",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516978",
+    "libelle": "Manœuvrer la grue pour déplacer des charges lourdes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "516997",
+    "libelle": "Analyser les performances hydrodynamiques des navires",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517004",
+    "libelle": "Améliorer l'efficacité énergétique des navires",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "501181",
+    "libelle": "Proposer des améliorations techniques pour la cabine",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517063",
+    "libelle": "Analyser les besoins logistiques des clients",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517091",
+    "libelle": "Conseiller la direction sur les investissements en équipements",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517108",
+    "libelle": "Intégrer des technologies numériques dans la gestion portuaire",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517248",
+    "libelle": "Argumenter sur les choix de production",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517287",
+    "libelle": "Organiser des activités de loisirs pour les passagers",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517353",
+    "libelle": "Développer des stratégies de conservation adaptées",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "502071",
+    "libelle": "Contrôler le respect des règles et procédures de jeux",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "502102",
+    "libelle": "Assurer le suivi des procédures réglementaires aéroportuaires",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "502150",
+    "libelle": "Promouvoir les pratiques de développement durable dans la gestion de l'eau",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "502605",
+    "libelle": "Surveiller les flux de véhicules et réguler le trafic au péage",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517390",
+    "libelle": "Etablir des partenariats avec des écoles de voile ou des clubs nautiques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517392",
+    "libelle": "Evaluer les risques liés aux activités commerciales nautiques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517395",
+    "libelle": "Elaborer des stratégies de prix compétitives",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517404",
+    "libelle": "Argumenter pour l'adoption de meilleures pratiques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517412",
+    "libelle": "Analyser l'environnement de travail pour anticiper les risques",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517434",
+    "libelle": "Conseiller sur les meilleures pratiques de gestion foncière",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517446",
+    "libelle": "Découper des tôles selon les spécifications",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517466",
+    "libelle": "Maintenir une veille réglementaire sur la sécurité aérienne",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517489",
+    "libelle": "Organiser des événements et des conférences portuaires",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517494",
+    "libelle": "Gérer les documents de navigation et les autorisations nécessaires",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517500",
+    "libelle": "Analyser les conditions météorologiques pour un vol",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517503",
+    "libelle": "Surveiller l'état technique de l'avion",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517511",
+    "libelle": "Evaluer les risques de sécurité des vols et proposer des mesures préventives",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517528",
+    "libelle": "Mettre en place des stratégies pour améliorer la satisfaction des clients du secteur maritime",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517532",
+    "libelle": "Etablir des rapports de performance pour les opérations maritimes",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517547",
+    "libelle": "Conduire des études de marché pour explorer de nouvelles opportunités dans le transport maritime",
+    "type": "COMPETENCE-DETAILLEE"
+  },
+  {
+    "code": "517555",
+    "libelle": "Respecter les normes de sécurité et d'hygiène dans l'enceinte du silo",
+    "type": "COMPETENCE-DETAILLEE"
+  }
+]

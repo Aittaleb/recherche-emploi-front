@@ -1,0 +1,65 @@
+[
+  {
+    "codePostal": "59279",
+    "competences": null,
+    "id": null,
+    "identifiantFt": "213CKHY",
+    "intituleOffre": "CONDUCTEUR D'ENGINS H/F",
+    "lieuTravail": "59 - Loon-Plage",
+    "salaire": "Horaire de 13.0 Euros à 15.0 Euros sur 12.0 mois"
+  },
+  {
+    "codePostal": "59190",
+    "competences": null,
+    "id": null,
+    "identifiantFt": "213CKHX",
+    "intituleOffre": "CONDUCTEUR DE LIGNE H/F",
+    "lieuTravail": "59 - Hazebrouck",
+    "salaire": "Horaire de 12.31 Euros à 14.0 Euros sur 12.0 mois"
+  },
+  {
+    "codePostal": "17810",
+    "competences": null,
+    "id": null,
+    "identifiantFt": "213CKDN",
+    "intituleOffre": "Chauffeur PL F/H",
+    "lieuTravail": "17 - Nieul-lès-Saintes",
+    "salaire": "Annuel de 24325.0 Euros à 29325.0 Euros sur 12.0 mois"
+  },
+  {
+    "codePostal": "68990",
+    "competences": null,
+    "id": null,
+    "identifiantFt": "213CKDD",
+    "intituleOffre": "AGENT DE PRODUCTION POLYVALENT H/F",
+    "lieuTravail": "68 - Heimsbrunn",
+    "salaire": "Horaire de 12.31 Euros à 13.0 Euros sur 12.0 mois"
+  },
+  {
+    "codePostal": "68270",
+    "competences": null,
+    "id": null,
+    "identifiantFt": "213CKDB",
+    "intituleOffre": "Conducteur de ligne de fabrication (H/F) - Lignes automatisées  H/F",
+    "lieuTravail": "68 - Wittenheim",
+    "salaire": "Horaire de 13.0 Euros à 14.0 Euros sur 12.0 mois"
+  },
+  {
+    "codePostal": "77500",
+    "competences": null,
+    "id": null,
+    "identifiantFt": "213CKCW",
+    "intituleOffre": "Economiste de la construction pour les infrastructures caténaires H/F",
+    "lieuTravail": "77 - Chelles",
+    "salaire": "Annuel de 35000.0 Euros à 40000.0 Euros sur 12.0 mois"
+  },
+  {
+    "codePostal": "68600",
+    "competences": null,
+    "id": null,
+    "identifiantFt": "213CKCS",
+    "intituleOffre": "Conducteur de ligne (H/F)",
+    "lieuTravail": "68 - Volgelsheim",
+    "salaire": "Annuel de 22405.0 Euros à 25000.0 Euros sur 12.0 mois"
+  }
+]

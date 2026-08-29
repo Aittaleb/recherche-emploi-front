@@ -6,6 +6,7 @@
     "start:local": "ng serve --proxy-config proxy.conf-local.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "start:mock-server": "node mock-server/server.mjs",
     "test": "ng test"
   },
   "private": true,
@@ -31,6 +32,8 @@
     "@angular/build": "^21.2.21",
     "@angular/cli": "^21.2.21",
     "@angular/compiler-cli": "^21.2.0",
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.4.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",
