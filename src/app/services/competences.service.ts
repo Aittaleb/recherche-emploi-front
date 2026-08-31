@@ -2,13 +2,15 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Competence } from '../models/competences.model';
 import { API_COMPETENCES } from '../constants/api.constants';
-import { of, tap } from 'rxjs';
+import { catchError, of, tap } from 'rxjs';
+import { ToasterService } from './toaster.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CompetencesService {
   private readonly http = inject(HttpClient);
+  private readonly toasterService = inject(ToasterService);
   private readonly CACHE_KEY = 'rome_competences_cache';
 
   /**
@@ -22,9 +24,12 @@ export class CompetencesService {
       return of(JSON.parse(cached) as Competence[]);
     }
     return this.http.get<Competence[]>(API_COMPETENCES).pipe(
-      tap((competences) =>
-        localStorage.setItem(this.CACHE_KEY, JSON.stringify(competences))
-      )
+      tap((competences) => localStorage.setItem(this.CACHE_KEY, JSON.stringify(competences))),
+      catchError((error) => {
+        this.toasterService.showToast("Erreur lors du chargement des compétences ROME. Veuillez réessayer plus tard.");
+        console.error('Erreur lors du chargement des compétences ROME :', error);
+        return [];
+      }),
     );
   }
 

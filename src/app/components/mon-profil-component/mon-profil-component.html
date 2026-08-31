@@ -1,42 +1,46 @@
 <mat-sidenav-container class="profil-layout">
   @if (affichagePret()) {
-    <div class="profil-overview">
-      <div class="overview-header">
-        <div>
-          <p class="overview-title">Mon profil</p>
-          <p class="overview-subtitle">Consultez et mettez a jour vos informations personnelles.</p>
+    @if (affichageEnErreur()) {
+      <app-bloc-erreur-component></app-bloc-erreur-component>
+    } @else {
+      <div class="profil-overview">
+        <div class="overview-header">
+          <div>
+            <p class="overview-title">Mon profil</p>
+            <p class="overview-subtitle">Consultez et mettez a jour vos informations personnelles.</p>
+          </div>
+          <button matButton="filled" (click)="ouvrirModificationProfil()" data-test="modifier-profil-button">
+            <mat-icon>edit</mat-icon>
+            Modifier mes informations
+          </button>
         </div>
-        <button matButton="filled" (click)="ouvrirModificationProfil()" data-test="modifier-profil-button">
-          <mat-icon>edit</mat-icon>
-          Modifier mes informations
-        </button>
-      </div>
 
-      <div class="overview-grid">
-        <section class="overview-card" data-test="identite-section">
-          <p class="card-title">Identite</p>
-          <p><strong>Nom :</strong> {{ profilUtilisateur().nom }}</p>
-          <p><strong>Prenom :</strong> {{ profilUtilisateur().prenom }}</p>
-          <p><strong>Email :</strong> {{ profilUtilisateur().email }}</p>
+        <div class="overview-grid">
+          <section class="overview-card" data-test="identite-section">
+            <p class="card-title">Identite</p>
+            <p><strong>Nom :</strong> {{ profilUtilisateur().nom }}</p>
+            <p><strong>Prenom :</strong> {{ profilUtilisateur().prenom }}</p>
+            <p><strong>Email :</strong> {{ profilUtilisateur().email }}</p>
+          </section>
+
+          <section class="overview-card" data-test="localisation-section">
+            <p class="card-title">Localisation</p>
+            <p><strong>Ville :</strong> {{ profilUtilisateur().localisation }}</p>
+            <p><strong>Code postal :</strong> {{ profilUtilisateur().codePostal }}</p>
+            <p><strong>Experience :</strong> {{ profilUtilisateur().anneeExperience }} ans</p>
+          </section>
+        </div>
+
+        <section class="overview-card competences-card">
+          <p class="card-title">Mes competences</p>
+          <mat-chip-grid aria-label="Compétences utilisateur">
+            @for (competence of profilUtilisateur().competences; track competence.code) {
+              <mat-chip-row>{{ competence.libelle }}</mat-chip-row>
+            }
+          </mat-chip-grid>
         </section>
-
-        <section class="overview-card" data-test="localisation-section">
-          <p class="card-title">Localisation</p>
-          <p><strong>Ville :</strong> {{ profilUtilisateur().localisation }}</p>
-          <p><strong>Code postal :</strong> {{ profilUtilisateur().codePostal }}</p>
-          <p><strong>Experience :</strong> {{ profilUtilisateur().anneeExperience }} ans</p>
-        </section>
       </div>
-
-      <section class="overview-card competences-card">
-        <p class="card-title">Mes competences</p>
-        <mat-chip-grid aria-label="Compétences utilisateur">
-          @for (competence of profilUtilisateur().competences; track competence.code) {
-            <mat-chip-row>{{ competence.libelle }}</mat-chip-row>
-          }
-        </mat-chip-grid>
-      </section>
-    </div>
+    }
   } @else {
     <div class="spinner-container">
       <mat-spinner></mat-spinner>
@@ -57,27 +61,27 @@
           <div class="form-fields">
             <mat-form-field class="w-full" appearance="outline">
               <mat-label>Nom</mat-label>
-              <input matInput formControlName="nom" data-test="input-nom"/>
+              <input matInput formControlName="nom" data-test="input-nom" />
             </mat-form-field>
 
             <mat-form-field class="w-full" appearance="outline">
               <mat-label>Prenom</mat-label>
-              <input matInput formControlName="prenom" data-test="input-prenom"/>
+              <input matInput formControlName="prenom" data-test="input-prenom" />
             </mat-form-field>
 
             <mat-form-field class="w-full" appearance="outline">
               <mat-label>Email</mat-label>
-              <input matInput formControlName="email" data-test="input-email"/>
+              <input matInput formControlName="email" data-test="input-email" />
             </mat-form-field>
 
             <mat-form-field class="w-full" appearance="outline">
               <mat-label>Localisation</mat-label>
-              <input matInput formControlName="localisation" data-test="input-localisation"/>
+              <input matInput formControlName="localisation" data-test="input-localisation" />
             </mat-form-field>
 
             <mat-form-field class="w-full" appearance="outline">
               <mat-label>Code postal</mat-label>
-              <input matInput formControlName="codePostal" data-test="input-code-postal"/>
+              <input matInput formControlName="codePostal" data-test="input-code-postal" />
             </mat-form-field>
 
             <mat-form-field class="w-full" appearance="outline">

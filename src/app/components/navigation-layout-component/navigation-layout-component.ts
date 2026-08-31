@@ -10,6 +10,7 @@ import { NgOptimizedImage, CommonModule } from '@angular/common';
 import { PageTitleService } from '../../services/page-title.service';
 import { NavigationItem, UserNavigationItem } from '../../models/navigation.model';
 import { LoginService } from '../../services/login.service';
+import { ServiceEnErreurStore } from '../../core/service-en-erreur.store';
 
 @Component({
   selector: 'ngm-dev-block-nav-with-page-header',
@@ -34,6 +35,7 @@ export class NavigationLayoutComponent {
   readonly pageTitleService = inject(PageTitleService);
   private readonly router = inject(Router);
   private readonly loginService = inject(LoginService);
+  private readonly serviceEnErreurStore = inject(ServiceEnErreurStore);
 
   titlesMap: Map<string, string> = new Map<string, string>([
     ['/app/dashboard', 'Dashboard'],
@@ -74,6 +76,7 @@ export class NavigationLayoutComponent {
       const currentRoute = this.router.url.split(';queryParams')[0].split('?')[0];
       this.updatePageTitle(currentRoute);
       this.updateActiveNavigation(currentRoute);
+      this.serviceEnErreurStore.resetStore();
     });
   }
 

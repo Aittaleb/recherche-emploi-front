@@ -67,7 +67,7 @@ export class RapportCorrespondanceDialogComponent {
 
   ajouterDansFavories(): void {
     const idUtilisateur = this.userService.currentUser().id;
-    if (!idUtilisateur) return;
+    if (!idUtilisateur || !this.data.offre.identifiantFt)  return;
 
     this.offresService.sauvegarderOffre(this.data.offre.identifiantFt, idUtilisateur).subscribe(() => {
       this.dialogRef.close(true);
