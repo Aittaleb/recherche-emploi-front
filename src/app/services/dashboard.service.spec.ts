@@ -51,19 +51,22 @@ describe('DashboardService', () => {
       nombreOffreAnalysees: 10,
       nombreOffreFavories: 3,
     };
-    //vi.spyOn(userService, 'currentUser').mockReturnValue({id: 1, prenom: 'test', nom: 'test'} as User);
+    const spy = vi.spyOn(service, 'declarerServicePret');
     service.getDashboard()?.subscribe((response => {
       expect(response).toEqual(rapportMock);
+      expect(spy).toHaveBeenCalledTimes(1);
     }));
-    const request = httpTesting.expectOne(`${API_DASHBOARD}/1`);
+    const request = httpTesting.expectOne(`${API_DASHBOARD}/1?serviceName=dashboard`);
     request.flush(rapportMock);
   });
 
   it("getDashboard ne doit pas appeler l'API si id utilisateur null", () => {
     vi.spyOn(userService, 'currentUser').mockReturnValue({} as User);
+    const spy = vi.spyOn(service, 'declarerServicePret');
     service.getDashboard()?.subscribe((response) => {
       expect(response).toBeNull();
+      expect(spy).toHaveBeenCalledTimes(1);
     });
-    httpTesting.expectNone(`${API_DASHBOARD}/1`);
+    httpTesting.expectNone(`${API_DASHBOARD}/1?serviceName=dashboard`);
   });
 });

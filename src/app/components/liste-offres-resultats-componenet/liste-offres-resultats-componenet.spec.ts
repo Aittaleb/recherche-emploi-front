@@ -8,6 +8,7 @@ import { OffresService } from '../../services/offres.service';
 import { UserService } from '../../services/user.service';
 import { MatchingService } from '../../services/matching.service';
 import { ToasterService } from '../../services/toaster.service';
+import { signal } from '@angular/core';
 
 describe('ListeOffresResultatsComponenet', () => {
   let component: ListeOffresResultatsComponenet;
@@ -31,6 +32,8 @@ describe('ListeOffresResultatsComponenet', () => {
     search: vi.fn(() => of([offre])),
     searchDetails: vi.fn(() => of(details)),
     sauvegarderOffre: vi.fn(() => of({})),
+    declarerServicePret: vi.fn(),
+    estServiceEnErreur: vi.fn(signal(false))
   };
 
   const userServiceMock = {

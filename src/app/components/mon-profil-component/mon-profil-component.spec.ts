@@ -6,6 +6,7 @@ import { MonProfilComponent } from './mon-profil-component';
 import { UserService } from '../../services/user.service';
 import { ProfilService } from '../../services/profil.service';
 import { CompetencesService } from '../../services/competences.service';
+import { signal } from '@angular/core';
 
 describe('MonProfilComponent', () => {
   let component: MonProfilComponent;
@@ -29,6 +30,9 @@ describe('MonProfilComponent', () => {
   const profilServiceMock = {
     getProfilInformation: vi.fn(() => of(profilMock)),
     modifierProfil: vi.fn((_: number, payload) => of({ ...payload, id: 1 })),
+    declarerServicePret: vi.fn(),
+    serviceEstPret: vi.fn(signal(true)),
+    estServiceEnErreur: vi.fn(signal(false))
   };
 
   const competencesServiceMock = {

@@ -39,7 +39,7 @@ describe('ProfilService', () => {
       expect(profil).toEqual(mockProfil);
     });
 
-    const req = httpTesting.expectOne(`/api/profil/${profilId}`);
+    const req = httpTesting.expectOne(`/api/profil/${profilId}?serviceName=profil`);
     expect(req.request.method).toBe('GET');
     req.flush(mockProfil);
   });
@@ -82,7 +82,7 @@ describe('ProfilService', () => {
       },
     });
 
-    const req = httpTesting.expectOne('/api/profil/99');
+    const req = httpTesting.expectOne('/api/profil/99?serviceName=profil');
     req.flush('Not found', { status: 404, statusText: 'Not Found' });
 
     expect(errorStatus).toBe(404);

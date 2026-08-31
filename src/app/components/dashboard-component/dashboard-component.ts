@@ -1,6 +1,6 @@
 import {
   ChangeDetectionStrategy,
-  Component,
+  Component, computed,
   DestroyRef,
   inject,
   OnInit,
@@ -24,6 +24,8 @@ import {
 import { MatChip, MatChipSet } from '@angular/material/chips';
 import { MatIcon } from '@angular/material/icon';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { catchError } from 'rxjs';
+import { BlocErreurComponent } from '../bloc-erreur-component/bloc-erreur-component';
 
 @Component({
   selector: 'app-dash-board-coeur-de-page-component',
@@ -39,6 +41,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     MatChipSet,
     MatChip,
     MatIcon,
+    BlocErreurComponent,
   ],
   templateUrl: './dashboard-component.html',
   styleUrl: './dashboard-component.css',
@@ -51,20 +54,27 @@ export class DashboardComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
 
   dashboard: WritableSignal<Dashboard> = signal({});
-  affichagePret = signal(false);
+  affichagePret = computed(() => {
+    return this.dashboardService.serviceEstPret() || this.dashboardService.estServiceEnErreur()
+  });
 
   ngOnInit(): void {
+    this.dashboardService.declarerServicePret(false);
     this.dashboardService
       .getDashboard()
-      ?.pipe(takeUntilDestroyed(this.destroyRef))
+      ?.pipe(
+        takeUntilDestroyed(this.destroyRef),
+        catchError((error) => {
+          console.error('Erreur lors de la récupération du dashboard :', error);
+          return [];
+        })
+        )
       .subscribe({
         next: (data) => {
           this.dashboard.set(data ?? {});
-          this.affichagePret.set(true);
         },
         error: () => {
           this.dashboard.set({});
-          this.affichagePret.set(true);
         },
       });
   }
@@ -79,5 +89,9 @@ export class DashboardComponent implements OnInit {
 
   protected allerSurRecherche() {
     this.router.navigate(['/app/search']);
+  }
+
+  protected affichageEnErreur() {
+    return this.dashboardService.estServiceEnErreur();
   }
 }

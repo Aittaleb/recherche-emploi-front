@@ -22,6 +22,7 @@ import {
 import { MatchingService } from '../../services/matching.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ToasterService } from '../../services/toaster.service';
+import { BlocErreurComponent } from '../bloc-erreur-component/bloc-erreur-component';
 
 @Component({
   selector: 'app-liste-offres-componenet',
@@ -35,7 +36,8 @@ import { ToasterService } from '../../services/toaster.service';
     MatSidenav,
     MatButton,
     MatProgressSpinner,
-    MatIconButton
+    MatIconButton,
+    BlocErreurComponent,
   ],
   styleUrl: './liste-offres-resultats-componenet.css',
 })
@@ -54,6 +56,7 @@ export class ListeOffresResultatsComponenet implements OnInit {
   affichagePret = signal(false);
 
   ngOnInit(): void {
+    this.offresService.declarerServicePret(false);
     this.activatedRoute.queryParams.subscribe((params) => {
       const query = params['query'] || '';
       this.offresService.search(query).subscribe((data) => {
@@ -63,11 +66,15 @@ export class ListeOffresResultatsComponenet implements OnInit {
     });
   }
 
-  public voirDetails(element: Offre) {
-    this.offresService.searchDetails(element.identifiantFt).subscribe((data) => {
-      this.offreDetails.set(data);
-      this.sidenavOpen.set(true);
-    });
+  public voirDetails(offre: Offre) {
+    if (offre.identifiantFt) {
+      this.offresService.searchDetails(offre.identifiantFt).subscribe((data) => {
+        this.offreDetails.set(data);
+        this.sidenavOpen.set(true);
+      });
+    } else {
+      console.warn("identifiant de l'offre manquant");
+    }
   }
 
   public closeSidenav() {
@@ -78,13 +85,9 @@ export class ListeOffresResultatsComponenet implements OnInit {
     this.router.navigate(['/app/search']);
   }
 
-  private allerDansOffresFavories() {
-    this.router.navigate(['/app/mes-offres']);
-  }
-
   protected ajouterDansFavories(details: OffreDetails) {
     const idUtilisateur = this.userService.currentUser().id;
-    if (idUtilisateur) {
+    if (idUtilisateur && details.identifiantFt) {
       this.offresService.sauvegarderOffre(details.identifiantFt, idUtilisateur).subscribe(() => {
         this.closeSidenav();
         this.toasterService.showToast('Offre ajoutée aux favoris avec succès !');
@@ -94,22 +97,28 @@ export class ListeOffresResultatsComponenet implements OnInit {
 
   protected genererRapportCorrespondance(details: OffreDetails) {
     const idUtilisateur = this.userService.currentUser().id;
-    if (!idUtilisateur) {
+    if (!idUtilisateur || !details.identifiantFt) {
       return;
     }
 
-    this.matchingService.getMatchingInformation(idUtilisateur, details.identifiantFt).subscribe((rapport) => {
-      this.dialog.open(RapportCorrespondanceDialogComponent, {
-        width: '640px',
-        maxWidth: '92vw',
-        maxHeight: '90vh',
-        autoFocus: false,
-        panelClass: 'rapport-dialog-panel',
-        data: {
-          offre: details,
-          rapport,
-        },
+    this.matchingService
+      .getMatchingInformation(idUtilisateur, details.identifiantFt)
+      .subscribe((rapport) => {
+        this.dialog.open(RapportCorrespondanceDialogComponent, {
+          width: '640px',
+          maxWidth: '92vw',
+          maxHeight: '90vh',
+          autoFocus: false,
+          panelClass: 'rapport-dialog-panel',
+          data: {
+            offre: details,
+            rapport,
+          },
+        });
       });
-    });
+  }
+
+  protected affichageEnErreur() {
+    return this.offresService.estServiceEnErreur();
   }
 }

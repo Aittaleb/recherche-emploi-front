@@ -1,0 +1,21 @@
+<div class="error-message">
+  <img
+    ngSrc="alert-error.svg"
+    alt="Logo"
+    height="48"
+    width="48"
+    class="error-image" />
+  <div class="error-content">
+    <h2 class="error-title">
+      Erreur de chargement
+    </h2>
+    <p>Une erreur est survenue lors du chargement de cette page. Veuillez reessayer plus tard.</p>
+  </div>
+</div>
+@if (activerRefreshButton) {
+  <div class="error-actions">
+    <button matButton="filled" (click)="reloadLarouteActuelle()">Réessayer</button>
+  </div>
+}
+
+

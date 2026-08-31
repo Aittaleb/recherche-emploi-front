@@ -3,16 +3,25 @@ import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { API_COMPETENCES } from '../constants/api.constants';
+import { ToasterService } from './toaster.service';
 
 describe('CompetenceService', () => {
 
   let service: CompetencesService;
   let httpTesting: HttpTestingController;
 
+  const toasterServiceMock = {
+    showToast: vi.fn()
+  };
+
   beforeEach(() => {
     localStorage.clear();
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: ToasterService, useValue: toasterServiceMock }
+      ],
     });
     service = TestBed.inject(CompetencesService);
     httpTesting = TestBed.inject(HttpTestingController);
@@ -85,6 +94,9 @@ describe('CompetenceService', () => {
     localStorage.setItem('rome_competences_cache', '{invalid-json');
 
     expect(() => service.getCompetences()).toThrow();
+    expect(toasterServiceMock.showToast).toHaveBeenCalledWith(
+      'Erreur lors du chargement des compétences ROME. Veuillez réessayer plus tard.',
+    );
     httpTesting.expectNone(API_COMPETENCES);
   });
 

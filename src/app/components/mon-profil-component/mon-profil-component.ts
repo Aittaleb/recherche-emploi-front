@@ -17,6 +17,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { CompetencesService } from '../../services/competences.service';
 import { debounceTime, distinctUntilChanged, startWith } from 'rxjs';
 import { ToasterService } from '../../services/toaster.service';
+import { BlocErreurComponent } from '../bloc-erreur-component/bloc-erreur-component';
 
 @Component({
   selector: 'app-mon-profil-component',
@@ -39,13 +40,16 @@ import { ToasterService } from '../../services/toaster.service';
     MatChipInput,
     MatAutocomplete,
     MatOption,
+    BlocErreurComponent,
   ],
   templateUrl: './mon-profil-component.html',
   styleUrl: './mon-profil-component.css',
 })
 export class MonProfilComponent implements OnInit {
   readonly profilUtilisateur: WritableSignal<ProfilUtilisateur> = signal({});
-  protected readonly affichagePret = signal(false);
+  readonly affichagePret = computed(() => {
+    return this.profilService.serviceEstPret() || this.profilService.estServiceEnErreur();
+  });
   readonly sidenavOpen: WritableSignal<boolean> = signal(false);
 
   private readonly userService = inject(UserService);
@@ -75,9 +79,9 @@ export class MonProfilComponent implements OnInit {
     this.competencesSearchControl.valueChanges.pipe(
       startWith(''),
       debounceTime(200),
-      distinctUntilChanged()
+      distinctUntilChanged(),
     ),
-    { initialValue: '' }
+    { initialValue: '' },
   );
 
   /**
@@ -92,9 +96,7 @@ export class MonProfilComponent implements OnInit {
     if (!term) return [];
 
     return all.filter(
-      (c) =>
-        c.libelle?.toLowerCase().includes(term) &&
-        !selected.some((s) => s.code === c.code)
+      (c) => c.libelle?.toLowerCase().includes(term) && !selected.some((s) => s.code === c.code),
     );
   });
 
@@ -108,11 +110,11 @@ export class MonProfilComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.profilService.declarerServicePret(false);
     const idUtilisateur = this.userService.currentUser().id;
     if (idUtilisateur) {
       this.profilService.getProfilInformation(idUtilisateur).subscribe((data) => {
         this.profilUtilisateur.set(data);
-        this.affichagePret.set(true);
       });
     }
     // Chargement unique : depuis le localStorage si disponible, sinon depuis l'API (puis mis en cache)
@@ -141,7 +143,9 @@ export class MonProfilComponent implements OnInit {
       email: new FormControl(profil.email ?? '', [Validators.required, Validators.email]),
       localisation: new FormControl(profil.localisation ?? '', [Validators.required]),
       codePostal: new FormControl(profil.codePostal ?? '', [Validators.required]),
-      anneeExperience: new FormControl<number | null>(profil.anneeExperience ?? null, [Validators.required]),
+      anneeExperience: new FormControl<number | null>(profil.anneeExperience ?? null, [
+        Validators.required,
+      ]),
     });
   }
 
@@ -171,7 +175,7 @@ export class MonProfilComponent implements OnInit {
   remove(competence: Competence): void {
     this.competencesSelectionnees.update((competences) => {
       const index = competences.findIndex((c) =>
-        competence.code ? c.code === competence.code : c.libelle === competence.libelle
+        competence.code ? c.code === competence.code : c.libelle === competence.libelle,
       );
       if (index < 0) return competences;
       const updated = [...competences];
@@ -192,5 +196,9 @@ export class MonProfilComponent implements OnInit {
     const competence: Competence = event.option.value;
     this.competencesSelectionnees.update((competences) => [...competences, competence]);
     this.competencesSearchControl.setValue('');
+  }
+
+  protected affichageEnErreur() {
+    return this.profilService.estServiceEnErreur();
   }
 }

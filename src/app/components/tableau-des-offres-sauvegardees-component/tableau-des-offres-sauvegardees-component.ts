@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  computed,
   effect,
   inject,
   OnInit,
@@ -25,6 +26,7 @@ import { MatchingService } from '../../services/matching.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RapportCorrespondanceDialogComponent } from '../rapport-correspondance-dialog/rapport-correspondance-dialog.component';
 import { ToasterService } from '../../services/toaster.service';
+import { BlocErreurComponent } from '../bloc-erreur-component/bloc-erreur-component';
 
 @Component({
   selector: 'app-tableau-des-offres-component',
@@ -43,6 +45,7 @@ import { ToasterService } from '../../services/toaster.service';
     MatIconButton,
     MatProgressSpinner,
     MatDialogModule,
+    BlocErreurComponent,
   ],
 })
 export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnInit {
@@ -55,7 +58,9 @@ export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnI
   readonly offres: WritableSignal<Offre[]> = signal([]);
   readonly offreDetails: WritableSignal<OffreDetails | null> = signal(null);
   readonly sidenavOpen: WritableSignal<boolean> = signal(false);
-  readonly affichagePret = signal(false);
+  readonly affichagePret = computed(() => {
+    return this.offreService.serviceEstPret() || this.offreService.estServiceEnErreur();
+  });
   displayedColumns: string[] = ['intituleOffre', 'lieuTravail', 'actions'];
   dataSource = new MatTableDataSource<Offre>(this.offres());
 
@@ -68,11 +73,11 @@ export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnI
   }
 
   ngOnInit(): void {
+    this.offreService.declarerServicePret(false);
     const idUtilisateur = this.userService.currentUser().id;
     if (idUtilisateur) {
       this.offreService.getOffresFavorites(idUtilisateur).subscribe((data) => {
         this.offres.set(data);
-        this.affichagePret.set(true);
       });
     }
   }
@@ -81,12 +86,14 @@ export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnI
     this.dataSource.paginator = this.paginator;
   }
 
-  public voirDetails(element: Offre) {
-    this.offreService.searchDetails(element.identifiantFt).subscribe((data) => {
-      data.id = element.id;
-      this.offreDetails.set(data);
-      this.sidenavOpen.set(true);
-    });
+  public voirDetails(offre: Offre) {
+    if (offre.identifiantFt) {
+      this.offreService.searchDetails(offre.identifiantFt).subscribe((data: OffreDetails) => {
+        data.id = offre.id;
+        this.offreDetails.set(data);
+        this.sidenavOpen.set(true);
+      });
+    }
   }
 
   public closeSidenav() {
@@ -98,33 +105,42 @@ export class TableauDesOffresSauvegardeesComponent implements AfterViewInit, OnI
   }
 
   protected supprimerOffreFavorite(details: OffreDetails) {
-    this.offreService
-      .supprimerOffre(details.id, this.userService.currentUser().id)
-      .subscribe(() => {
-        this.closeSidenav();
-        this.offres.set(this.offres().filter((offre) => offre.id !== details.id));
-        this.toasterService.showToast('Offre supprimée des favoris avec succès !');
-      });
+    if (details.id) {
+      this.offreService
+        .supprimerOffre(details.id, this.userService.currentUser().id)
+        .subscribe(() => {
+          this.closeSidenav();
+          this.offres.set(this.offres().filter((offre) => offre.id !== details.id));
+          this.toasterService.showToast('Offre supprimée des favoris avec succès !');
+        });
+    }
   }
 
+  // TODO: factoriser la gestion du sidenave dans un composant séparé
   protected genererRapportCorrespondance(details: OffreDetails) {
     const idUtilisateur = this.userService.currentUser().id;
-    if (!idUtilisateur) {
+    if (!idUtilisateur || !details.identifiantFt) {
       return;
     }
 
-    this.matchingService.getMatchingInformation(idUtilisateur, details.identifiantFt).subscribe((rapport) => {
-      this.dialog.open(RapportCorrespondanceDialogComponent, {
-        width: '640px',
-        maxWidth: '92vw',
-        maxHeight: '90vh',
-        autoFocus: false,
-        panelClass: 'rapport-dialog-panel',
-        data: {
-          offre: details,
-          rapport,
-        },
+    this.matchingService
+      .getMatchingInformation(idUtilisateur, details.identifiantFt)
+      .subscribe((rapport) => {
+        this.dialog.open(RapportCorrespondanceDialogComponent, {
+          width: '640px',
+          maxWidth: '92vw',
+          maxHeight: '90vh',
+          autoFocus: false,
+          panelClass: 'rapport-dialog-panel',
+          data: {
+            offre: details,
+            rapport,
+          },
+        });
       });
-    });
+  }
+
+  protected affichageEnErreur() {
+    return this.offreService.estServiceEnErreur();
   }
 }

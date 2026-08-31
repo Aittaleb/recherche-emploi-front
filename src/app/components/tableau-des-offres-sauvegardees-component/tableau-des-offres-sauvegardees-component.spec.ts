@@ -7,6 +7,7 @@ import { TableauDesOffresSauvegardeesComponent } from './tableau-des-offres-sauv
 import { OffresService } from '../../services/offres.service';
 import { UserService } from '../../services/user.service';
 import { MatchingService } from '../../services/matching.service';
+import { signal } from '@angular/core';
 
 describe('TableauDesOffresSauvegardeesComponent', () => {
   let component: TableauDesOffresSauvegardeesComponent;
@@ -29,6 +30,9 @@ describe('TableauDesOffresSauvegardeesComponent', () => {
     getOffresFavorites: vi.fn(() => of([offre])),
     searchDetails: vi.fn(() => of({ ...details })),
     supprimerOffre: vi.fn(() => of({})),
+    declarerServicePret: vi.fn(),
+    serviceEstPret: vi.fn(signal(true)),
+    estServiceEnErreur: vi.fn(signal(false))
   };
 
   const userServiceMock = {

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DashboardComponent } from './dashboard-component';
 import { DashboardService } from '../../services/dashboard.service';
 import { UserService } from '../../services/user.service';
+import { signal } from '@angular/core';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -12,6 +13,9 @@ describe('DashboardComponent', () => {
 
   const dashboardServiceMock = {
     getDashboard: vi.fn(),
+    declarerServicePret: vi.fn(),
+    serviceEstPret: vi.fn(signal(true)),
+    estServiceEnErreur: vi.fn(signal(false))
   };
 
   const userServiceMock = {
@@ -58,7 +62,15 @@ describe('DashboardComponent', () => {
 
     component.ngOnInit();
 
-    expect(component.dashboard()).toEqual({});
+    expect(component.dashboard()).toEqual({
+      competencesADevelopper: [
+        {
+          code: 'C1',
+          libelle: 'TypeScript'
+        }
+      ],
+      matchMoyen: 80
+    });
     expect(component.affichagePret()).toBe(true);
   });
 
