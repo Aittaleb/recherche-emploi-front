@@ -28,7 +28,7 @@ export class DashboardService extends GestionnaireEtatErreurService<string> {
         catchError((err) => {
           console.error('Erreur dans dashboard: ', err);
           this.declarerServicePret();
-          return of(null);
+          return of({});
         }),
       );
     }

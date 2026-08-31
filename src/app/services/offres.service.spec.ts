@@ -51,10 +51,12 @@ describe('OffresService', () => {
 
   it('getOffresFavorites doit appeler le bon endpoint', () => {
     const idUtilisateur = 456;
+    const spy = vi.spyOn(service, 'declarerServicePret');
+    service.getOffresFavorites(idUtilisateur).subscribe(() => {
+      expect(spy).toHaveBeenCalledTimes(1);
+    });
 
-    service.getOffresFavorites(idUtilisateur).subscribe();
-
-    const req = httpTesting.expectOne(`/api/offres/favorites/user/${idUtilisateur}`);
+    const req = httpTesting.expectOne(`/api/offres/favorites/user/${idUtilisateur}?serviceName=offres`);
     req.flush([]);
   });
 
@@ -63,7 +65,7 @@ describe('OffresService', () => {
 
     service.search(query).subscribe();
 
-    const req = httpTesting.expectOne('/api/offres?query=test');
+    const req = httpTesting.expectOne('/api/offres?query=test&serviceName=offres');
     req.flush([]);
   });
 
@@ -72,7 +74,7 @@ describe('OffresService', () => {
 
     service.searchDetails(idOffre).subscribe();
 
-    const req = httpTesting.expectOne(`/api/offres/${idOffre}`);
+    const req = httpTesting.expectOne(`/api/offres/${idOffre}?serviceName=offres`);
     req.flush({});
   })
 

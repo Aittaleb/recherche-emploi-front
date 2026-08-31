@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ProfilUtilisateur } from '../models/profil.utilisateur.model';
 import { GestionnaireEtatErreurService } from '../core/gestionnaire.etat.erreur.service';
-import { catchError, map, of } from 'rxjs';
+import { catchError, map, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +24,7 @@ export class ProfilService extends GestionnaireEtatErreurService<string> {
       catchError((err) => {
         console.error('Erreur dans profil: ', err);
         this.declarerServicePret();
-        return of({});
+        return throwError(() => err);
       }),
     );
   }

@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Competence } from '../models/competences.model';
 import { API_COMPETENCES } from '../constants/api.constants';
-import { catchError, of, tap } from 'rxjs';
+import { catchError, of, tap, throwError } from 'rxjs';
 import { ToasterService } from './toaster.service';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class CompetencesService {
       catchError((error) => {
         this.toasterService.showToast("Erreur lors du chargement des compétences ROME. Veuillez réessayer plus tard.");
         console.error('Erreur lors du chargement des compétences ROME :', error);
-        return [];
+        return throwError(() => error);
       }),
     );
   }
