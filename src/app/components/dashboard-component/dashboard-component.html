@@ -1,4 +1,4 @@
-<div class="dashboard-root">
+<div class="dashboard-root" xmlns="http://www.w3.org/1999/html">
   @if (affichagePret()) {
     @if (this.affichageEnErreur()) {
       <app-bloc-erreur-component></app-bloc-erreur-component>
@@ -49,6 +49,13 @@
               <p class="skills-empty">Aucune competence manquante detectee pour le moment.</p>
             }
           </section>
+          @if(!!dashboard().offresProposees) {
+            <section>
+              <p class="skills-title">List des propositions:</p>
+              <app-liste-propositions-component [offresProposees]="dashboard().offresProposees ?? []"></app-liste-propositions-component>
+            </section>
+          }
+
         </mat-card-content>
 
         <mat-card-actions align="end">

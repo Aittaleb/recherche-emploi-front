@@ -1,0 +1,27 @@
+<mat-list>
+  @for (offre of this.offresProposees; track offre.identifiantFt; let last = $last) {
+    <mat-list-item data-test="item-resultat-recherche">
+      <img src="/job-search-item-icon.png"
+           matListItemAvatar
+           class="rounded-full" alt=""
+           width="50"
+           height="50" />
+      <span matListItemTitle data-test="intitule-offre">
+              {{ offre.intituleOffre }}
+              </span>
+      <span matListItemLine data-test="salaire-offre">
+              {{ offre.salaire ?? 'Salaire non précisé' }}
+              </span>
+      <div matListItemMeta>
+        <div class="hidden sm:flex items-center gap-x-3">
+          <p class="text-sm" data-test="lieu-offre">
+            {{ offre.lieuTravail }} {{ offre.codePostal ? '-' + offre.codePostal : '' }}
+          </p>
+        </div>
+      </div>
+    </mat-list-item>
+    @if (!last) {
+      <mat-divider />
+    }
+  }
+</mat-list>
